@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="" />
+    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="finish ui prototype">
+      <change afterPath="$PROJECT_DIR$/Moments/Assets.xcassets/comment.background.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/Assets.xcassets/tableview.background.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/Assets.xcassets/tableview.separator.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/Assets.xcassets/tweet.nick.color.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/CommentListView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/ImageGridView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/ProfileViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/RootViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/TweetViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moments/WrapperTableViewCell.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/ViewController.swift" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,8 +25,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_68AC28C7-F639-4CA3-8B50-F0C7F444F846" />
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Tung CHENG &lt;hichengd@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TbQL66EqbgCEzwW5lnQNYZNN15" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="Moments" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,10 +81,25 @@
       <option name="presentableId" value="Default" />
       <updated>1573726255713</updated>
       <workItem from="1573726258518" duration="1956000" />
+      <workItem from="1573735034853" duration="10513000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367FF2BCFA1CF435788A1085 /* WrapperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFA788313ED9C72F91D0F /* WrapperTableViewCell.swift */; };
 		367FF2C37F8B6843D69E7B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */; };
-		367FF5B99220D2F6DC2F8B84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFF37CD553B5920B7F403 /* ViewController.swift */; };
+		367FF5B99220D2F6DC2F8B84 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFF37CD553B5920B7F403 /* RootViewController.swift */; };
 		367FF7FD32B58A1B236D91F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 367FF01466836B20D7A9684B /* LaunchScreen.storyboard */; };
 		367FFABBF5A9F055E3811167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367FF7D6BEFC39CEF7DBE25D /* Assets.xcassets */; };
+		367FFB1413D1B81814856265 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFE9FE0495946A0438E05 /* TweetViewController.swift */; };
 		367FFC7223A96C015D8AAB21 /* MomentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF1A8DC48DF7D49352F19 /* MomentsTests.swift */; };
+		367FFE5E5595061A273C8C2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF18F4B0862C267920D1B /* ProfileViewController.swift */; };
+		A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */; };
+		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		367FF18F4B0862C267920D1B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		367FF1A8DC48DF7D49352F19 /* MomentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsTests.swift; sourceTree = "<group>"; };
 		367FF44EADF529556F28FF68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		367FF4F89368AAB2353B7667 /* MomentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MomentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		367FF7567D271C29BFD10A21 /* Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367FF7D6BEFC39CEF7DBE25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		367FFA788313ED9C72F91D0F /* WrapperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperTableViewCell.swift; sourceTree = "<group>"; };
 		367FFAAA20691D108CB42FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		367FFD697460FA6299CF8A7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		367FFF37CD553B5920B7F403 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		367FFE9FE0495946A0438E05 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		367FFF37CD553B5920B7F403 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +98,12 @@
 				367FF7D6BEFC39CEF7DBE25D /* Assets.xcassets */,
 				367FF01466836B20D7A9684B /* LaunchScreen.storyboard */,
 				367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */,
-				367FFF37CD553B5920B7F403 /* ViewController.swift */,
+				367FFF37CD553B5920B7F403 /* RootViewController.swift */,
+				367FF18F4B0862C267920D1B /* ProfileViewController.swift */,
+				367FFE9FE0495946A0438E05 /* TweetViewController.swift */,
+				A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */,
+				A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */,
+				367FFA788313ED9C72F91D0F /* WrapperTableViewCell.swift */,
 			);
 			path = Moments;
 			sourceTree = "<group>";
@@ -138,6 +153,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Objective-CHENG";
+				TargetAttributes = {
+					367FFF288CEF696060595CF6 = {
+						DevelopmentTeam = DUDTP565G4;
+					};
+				};
 			};
 			buildConfigurationList = 367FF15C549AFCA79DFF69AE /* Build configuration list for PBXProject "Moments" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -184,7 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				367FF2C37F8B6843D69E7B16 /* AppDelegate.swift in Sources */,
-				367FF5B99220D2F6DC2F8B84 /* ViewController.swift in Sources */,
+				367FF5B99220D2F6DC2F8B84 /* RootViewController.swift in Sources */,
+				367FFE5E5595061A273C8C2B /* ProfileViewController.swift in Sources */,
+				367FFB1413D1B81814856265 /* TweetViewController.swift in Sources */,
+				A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */,
+				A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */,
+				367FF2BCFA1CF435788A1085 /* WrapperTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +388,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DUDTP565G4;
 				INFOPLIST_FILE = Moments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.Moments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,7 +403,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DUDTP565G4;
 				INFOPLIST_FILE = Moments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.Moments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
