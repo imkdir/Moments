@@ -12,6 +12,19 @@ final class RootViewController: UIViewController {
     private let tableView = UITableView()
     private var profileHeaderViewController: ProfileViewController!
 
+    private var tweetListViewModel: TweetListViewModel
+    private var userViewModel: UserViewModel
+
+    init(tweetListViewModel: TweetListViewModel, userViewModel: UserViewModel) {
+        self.tweetListViewModel = tweetListViewModel
+        self.userViewModel = userViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,15 +46,14 @@ final class RootViewController: UIViewController {
         view.addSubview(tableView)
         let headerFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 435)
         let headerView = UIView(frame: headerFrame)
-        let vc = ProfileViewController()
+        let vc = ProfileViewController(viewModel: self.userViewModel)
         self.addChild(vc)
         headerView.addSubview(vc.view)
-        headerView.backgroundColor = .white
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         vc.view.leadingAnchor.constraint(equalTo: headerView.leadingAnchor).isActive = true
         vc.view.trailingAnchor.constraint(equalTo: headerView.trailingAnchor).isActive = true
         vc.view.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
-        vc.view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -60).isActive = true
+        vc.view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         vc.didMove(toParent: self)
         tableView.tableHeaderView = headerView
     }
@@ -56,18 +68,18 @@ final class RootViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
 
-        // TODO: extract out delegates
         tableView.dataSource = self
     }
 }
 
 extension RootViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tweetListViewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vc = TweetViewController()
+        let vm = tweetListViewModel.tweetViewModel(atIndexPath: indexPath)
+        let vc = TweetViewController(viewModel: vm)
         let cell = tableView.dequeueReusableCell(withIdentifier: WrapperTableViewCell.reuseIdentifier) as! WrapperTableViewCell
         cell.selectionStyle = .none
         self.addChild(vc)

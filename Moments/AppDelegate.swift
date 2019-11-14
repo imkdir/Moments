@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MomentModel
 
 
 @UIApplicationMain
@@ -20,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func compositionRoot() {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = RootViewController()
+        let tweetListVM = TweetListViewModel(model: [])
+        let userVM = UserViewModel(model: User(
+            profileImage: "https://thoughtworks-mobile-2018.herokuapp.com/images/user/profile-image.jpg",
+            avatar: "https://thoughtworks-mobile-2018.herokuapp.com/images/user/avatar.png",
+            nick: "Huan Hua"))
+        window.rootViewController = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)
         window.makeKeyAndVisible()
         self.window = window
     }
