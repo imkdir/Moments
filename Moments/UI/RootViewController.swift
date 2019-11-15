@@ -97,11 +97,6 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.sectionHeaderHeight))
     }

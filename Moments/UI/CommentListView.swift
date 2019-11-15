@@ -19,7 +19,7 @@ final class CommentListView: UIView {
                 let attributed = NSMutableAttributedString(
                     string: $0.nickname,
                     attributes: [
-                        .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+                        .font: UIFont.systemFont(ofSize: 17, weight: .semibold),
                         .foregroundColor: UIColor(named: "tweet.nick.color")!])
                 attributed.append(NSAttributedString(
                     string: ": \($0.content)",

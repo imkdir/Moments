@@ -68,7 +68,7 @@ final class ProfileViewController: UIViewController {
 
         nicknameLabel.text = viewModel.nickname
         nicknameLabel.textColor = .white
-        nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nicknameLabel.shadowColor = .darkGray
         nicknameLabel.shadowOffset = CGSize(width: 0, height: 1)
     }

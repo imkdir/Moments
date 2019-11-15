@@ -10,14 +10,10 @@ import UIKit
 
 final class ImageGridView: UIView {
     
-    typealias Grid = (content: [[UIImage]], size: CGSize)
-    
-    var imageGrid: Grid = ([], .zero) {
+    var gridLayout: [[CGFloat]] = []  {
         didSet {
-            let vStack = UIStackView(arrangedSubviews: imageGrid.content.map({ images in
-                let hStack = UIStackView(arrangedSubviews: images.map({
-                    self.makeGridItemView(image: $0, size: imageGrid.size)
-                }))
+            let vStack = UIStackView(arrangedSubviews: gridLayout.map({ row in
+                let hStack = UIStackView(arrangedSubviews: row.map(makeGridItemView(size:)))
                 hStack.axis = .horizontal
                 hStack.spacing = 4
                 return hStack
@@ -26,6 +22,18 @@ final class ImageGridView: UIView {
             vStack.spacing = 4
             vStack.alignment = .leading
             self.stackView = vStack
+        }
+    }
+    
+    var imageGrid: [UIImage] = [] {
+        didSet {
+            let imageViews = stackView.arrangedSubviews
+                .compactMap {
+                    (($0 as? UIStackView)?.arrangedSubviews as? [UIImageView])
+                }.reduce([], +)
+            zip(imageViews, imageGrid).forEach {
+                $0.image = $1
+            }
         }
     }
     
@@ -42,12 +50,13 @@ final class ImageGridView: UIView {
         }
     }
     
-    private func makeGridItemView(image: UIImage, size: CGSize) -> UIImageView {
-        let imageView = UIImageView(image: image)
+    private func makeGridItemView(size: CGFloat) -> UIImageView {
+        let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .lightGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }

@@ -36,7 +36,7 @@ final class TweetViewController: UIViewController {
         configureAppearance()
         addViewConstraints()
     }
-
+    
     private func setupViewHierarchy() {
         rightColumnStackView = UIStackView(arrangedSubviews: [nicknameLabel, contentLabel, imageGridView, commentListView])
         contentStackView = UIStackView(arrangedSubviews: [avatarImageView, rightColumnStackView])
@@ -53,7 +53,7 @@ final class TweetViewController: UIViewController {
 
         nicknameLabel.text = viewModel.nickname
         nicknameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nicknameLabel.textColor = UIColor(named: "tweet.nick.color")
 
         contentLabel.numberOfLines = 0
@@ -61,6 +61,7 @@ final class TweetViewController: UIViewController {
         contentLabel.text = viewModel.content
         contentLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
+        imageGridView.gridLayout = viewModel.gridLayout
         viewModel.rx.imageGrid
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [imageGridView] in
