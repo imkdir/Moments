@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func compositionRoot() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        window.rootViewController = UIViewController()
+        window.rootViewController = PlaceholderViewController()
         
         fetchProfileAndTweets(userId: "jsmith")
             .observeOn(MainScheduler.instance)
             .retry(1)
             .subscribe(onNext: { user, tweets in
-                let imageProvider = ImageProvider(cache: ImageCache.instance)
+                let imageProvider = ImageProvider(cache: ImageCache(dir: .itemReplacementDirectory))
                 let tweetListVM = TweetListViewModel(model: tweets, imageProvider: imageProvider)
                 let userVM = UserViewModel(model: user, imageProvider: imageProvider)
                 window.rootViewController = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)

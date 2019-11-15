@@ -10,7 +10,7 @@ import UIKit
 
 final class RootViewController: UIViewController {
     private let tableView = UITableView()
-    private var profileHeaderViewController: ProfileViewController!
+    private var profileViewController: ProfileViewController!
 
     private var tweetListViewModel: TweetListViewModel
     private var userViewModel: UserViewModel
@@ -32,21 +32,6 @@ final class RootViewController: UIViewController {
         configureAppearance()
         addViewConstraints()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        tableView.reloadData()
-    }
-
-    private func addViewConstraints() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
 
     private func setupViewHierarchy() {
         view.addSubview(tableView)
@@ -66,6 +51,9 @@ final class RootViewController: UIViewController {
     }
 
     private func configureAppearance() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         tableView.sectionHeaderHeight = 60
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableView.automaticDimension
@@ -74,9 +62,15 @@ final class RootViewController: UIViewController {
         tableView.separatorColor = UIColor(named: "tableview.separator")
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
+    }
+    
+    private func addViewConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 
@@ -90,7 +84,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         let vm = tweetListViewModel.tweetViewModel(atIndexPath: indexPath)
         let vc = TweetViewController(viewModel: vm)
         let cell = tableView.dequeueReusableCell(withIdentifier: WrapperTableViewCell.reuseIdentifier) as! WrapperTableViewCell
-        cell.selectionStyle = .none
+    
         self.addChild(vc)
         cell.configure(with: vc)
         vc.didMove(toParent: self)

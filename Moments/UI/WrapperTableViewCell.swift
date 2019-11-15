@@ -10,6 +10,7 @@ final class WrapperTableViewCell: UITableViewCell {
 
     func configure(with content: UIViewController) {
         self.content = content
+        selectionStyle = .none
 
         contentView.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,11 +23,10 @@ final class WrapperTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        if let content = self.content {
-            content.willMove(toParent: nil)
-            content.view.removeFromSuperview()
-            content.removeFromParent()
-        }
+        guard let content = self.content else { return }
+        content.willMove(toParent: nil)
+        content.view.removeFromSuperview()
+        content.removeFromParent()
     }
 
     static var reuseIdentifier: String {

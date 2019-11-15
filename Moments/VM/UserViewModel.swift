@@ -14,8 +14,6 @@ final class UserViewModel: NSObject {
     fileprivate var model: User
     fileprivate var imageProvider: ImageProvider
 
-    let avatarSize: CGFloat = 70
-
     var nickname: String {
         return model.nick
     }

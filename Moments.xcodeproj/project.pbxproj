@@ -38,6 +38,7 @@
 		A64DB945237DF22D00B0D6FB /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB944237DF22D00B0D6FB /* CloudService.swift */; };
 		A6541755237E1DC40000EA2E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6541754237E1DC40000EA2E /* ImageCache.swift */; };
 		A6541757237E221E0000EA2E /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6541756237E221E0000EA2E /* ImageProvider.swift */; };
+		A6541759237EFB800000EA2E /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6541758237EFB800000EA2E /* PlaceholderViewController.swift */; };
 		A71A1A33551D606759917ACA /* Pods_CloudService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97ADB7BDD3A8BDF1492C4A9F /* Pods_CloudService.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AA9970A096AC6917E584BF80 /* Pods_Moments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2EBDBC7AF244B06F28EA3 /* Pods_Moments.framework */; };
 /* End PBXBuildFile section */
@@ -160,6 +161,7 @@
 		A64DB944237DF22D00B0D6FB /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		A6541754237E1DC40000EA2E /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A6541756237E221E0000EA2E /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		A6541758237EFB800000EA2E /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		A67BF92B237DFF8900279704 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Frameworks/Moya.framework; sourceTree = "<group>"; };
 		DD18EB7EFAE097C8CF26EC0F /* Pods_MomentModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MomentModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5DD10959BE19AAC59ED1DE /* Pods-Moments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moments.release.xcconfig"; path = "Target Support Files/Pods-Moments/Pods-Moments.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,11 +256,11 @@
 		367FFA1CBF858D4BEB6A49DA = {
 			isa = PBXGroup;
 			children = (
+				367FF139DFC005FC968B3FE2 /* Products */,
 				A64DB8FE237DDFD300B0D6FB /* MomentModel */,
 				A64DB90B237DDFD300B0D6FB /* MomentModelTests */,
 				A64DB924237DE65100B0D6FB /* CloudService */,
 				A64DB931237DE65100B0D6FB /* CloudServiceTests */,
-				367FF139DFC005FC968B3FE2 /* Products */,
 				367FFA5B3F92AF806CBA5DC5 /* Moments */,
 				367FF76D09627CC705752C39 /* MomentsTests */,
 				2142D258E85106BCB7490B62 /* Frameworks */,
@@ -301,6 +303,7 @@
 				A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */,
 				A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */,
 				367FFA788313ED9C72F91D0F /* WrapperTableViewCell.swift */,
+				A6541758237EFB800000EA2E /* PlaceholderViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6541755237E1DC40000EA2E /* ImageCache.swift in Sources */,
+				A6541759237EFB800000EA2E /* PlaceholderViewController.swift in Sources */,
 				367FF2C37F8B6843D69E7B16 /* AppDelegate.swift in Sources */,
 				A64DB8F3237DD94A00B0D6FB /* UserViewModel.swift in Sources */,
 				367FF5B99220D2F6DC2F8B84 /* RootViewController.swift in Sources */,

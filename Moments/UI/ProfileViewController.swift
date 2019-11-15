@@ -31,29 +31,11 @@ final class ProfileViewController: UIViewController {
         configureAppearance()
         addViewConstraints()
     }
-
-    private func addViewConstraints() {
-        // prepare for auto layout
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        // align top, left, right edges with superview, with bottom margin 60 points
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-
-        // put avatar at bottom left corner, with bottom offset
-        view.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: margin).isActive = true
-        avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: viewModel.avatarSize).isActive = true
-        avatarImageView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: avatarImageOffsetY).isActive = true
-
-        // put nickname at the left side of avatar, with bottom margin to superview
-        nicknameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: margin).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: nicknameLabel.trailingAnchor, constant: avatarLeadingMargin).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: nickLabelBottomMargin).isActive = true
+    
+    private func setupViewHierarchy() {
+        view.addSubview(profileImageView)
+        view.addSubview(avatarImageView)
+        view.addSubview(nicknameLabel)
     }
 
     private func configureAppearance() {
@@ -72,14 +54,29 @@ final class ProfileViewController: UIViewController {
         nicknameLabel.shadowColor = .darkGray
         nicknameLabel.shadowOffset = CGSize(width: 0, height: 1)
     }
+    
+    private func addViewConstraints() {
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-    private func setupViewHierarchy() {
-        view.addSubview(profileImageView)
-        view.addSubview(avatarImageView)
-        view.addSubview(nicknameLabel)
+        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
+
+        view.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: margin).isActive = true
+        avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: avatarSize).isActive = true
+        avatarImageView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: avatarImageOffsetY).isActive = true
+
+        nicknameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: margin).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: nicknameLabel.trailingAnchor, constant: avatarLeadingMargin).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: nickLabelBottomMargin).isActive = true
     }
     
     private let margin: CGFloat = 16
+    private let avatarSize: CGFloat = 70
     private let avatarImageOffsetY: CGFloat = 20
     private let avatarLeadingMargin: CGFloat = 20
     private let nickLabelBottomMargin: CGFloat = 8

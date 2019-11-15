@@ -2,17 +2,19 @@ import UIKit
 
 private let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
 
-final public class ImageCache: NSObject {
-    public static let instance = ImageCache()
+final class ImageCache: NSObject {
     
-    internal let storage = NSCache<NSString, UIImage>()
-    internal let manager = FileManager.default
+    private let storage = NSCache<NSString, UIImage>()
+    private let manager = FileManager.default
     
-    private override init() {
+    private var dir: FileManager.SearchPathDirectory
+    
+    init(dir: FileManager.SearchPathDirectory) {
+        self.dir = dir
         super.init()
     }
     
-    public subscript(key: String) -> UIImage? {
+    subscript(key: String) -> UIImage? {
         get {
             if let value = storage.object(forKey: key as NSString) {
                 return value
@@ -34,7 +36,7 @@ final public class ImageCache: NSObject {
     }
     
     @discardableResult
-    internal func saveToCaches(withPathName name: String, data: Data) -> Bool {
+    private func saveToCaches(withPathName name: String, data: Data) -> Bool {
         let fileURL = cachesURL.appendingPathComponent(name)
         do {
             if manager.fileExists(atPath: fileURL.path) {
@@ -51,11 +53,11 @@ final public class ImageCache: NSObject {
         }
     }
     
-    internal func readFromCaches(withPathName name: String) -> UIImage? {
+    private func readFromCaches(withPathName name: String) -> UIImage? {
         return UIImage(contentsOfFile: cachesURL.appendingPathComponent(name).path)
     }
     
     private func temporaryURL(for url: URL) throws -> URL {
-        return try manager.url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: url, create: true)
+        return try manager.url(for: dir, in: .userDomainMask, appropriateFor: url, create: true)
     }
 }

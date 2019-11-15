@@ -14,21 +14,7 @@ final class CommentListView: UIView {
     
     var comments: [Comment] = [] {
         didSet {
-            let vStack = UIStackView(arrangedSubviews: comments.map({
-                let label = UILabel()
-                let attributed = NSMutableAttributedString(
-                    string: $0.nickname,
-                    attributes: [
-                        .font: UIFont.systemFont(ofSize: 17, weight: .semibold),
-                        .foregroundColor: UIColor(named: "tweet.nick.color")!])
-                attributed.append(NSAttributedString(
-                    string: ": \($0.content)",
-                    attributes: [.font: UIFont.systemFont(ofSize: 17)]))
-                label.attributedText = attributed
-                label.numberOfLines = 0
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }))
+            let vStack = UIStackView(arrangedSubviews: comments.map(makeLabel(comment:)))
             vStack.axis = .vertical
             self.stackView = vStack
         }
@@ -46,22 +32,23 @@ final class CommentListView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let fillColor = UIColor(named: "comment.background")
-        var path = UIBezierPath(
+        let fillColor = UIColor(named: "comment.background")!
+        let rectangle = UIBezierPath(
             rect: CGRect(
                 x: rect.minX,
                 y: rect.minY + offsetY,
                 width: rect.width,
                 height: rect.height - offsetY))
-        fillColor?.setFill()
-        path.fill()
-        path = UIBezierPath()
-        path.move(to: CGPoint(x: rect.minX + offsetX * 2, y: rect.minY + offsetY))
-        path.addLine(to: CGPoint(x: rect.minX + offsetX * 3, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.minX + offsetX * 4, y: rect.minY + offsetY))
-        path.close()
-        fillColor?.setFill()
-        path.fill()
+        fillColor.setFill()
+        rectangle.fill()
+        
+        let triangle = UIBezierPath()
+        triangle.move(to: CGPoint(x: rect.minX + offsetX * 2, y: rect.minY + offsetY))
+        triangle.addLine(to: CGPoint(x: rect.minX + offsetX * 3, y: rect.minY))
+        triangle.addLine(to: CGPoint(x: rect.minX + offsetX * 4, y: rect.minY + offsetY))
+        triangle.close()
+        fillColor.setFill()
+        triangle.fill()
     }
     
     private var stackView: UIStackView! {
@@ -75,6 +62,22 @@ final class CommentListView: UIView {
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8 + offsetY).isActive = true
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
         }
+    }
+    
+    private func makeLabel(comment: Comment) -> UILabel {
+        let label = UILabel()
+        let attributed = NSMutableAttributedString(
+            string: comment.nickname,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 17, weight: .semibold),
+                .foregroundColor: UIColor(named: "tweet.nick.color")!])
+        attributed.append(NSAttributedString(
+            string: ": \(comment.content)",
+            attributes: [.font: UIFont.systemFont(ofSize: 17)]))
+        label.attributedText = attributed
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
     
     private let offsetY: CGFloat = 4

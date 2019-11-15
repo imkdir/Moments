@@ -44,23 +44,22 @@ final class TweetViewController: UIViewController {
     }
 
     private func configureAppearance() {
-        contentStackView.spacing = viewModel.stackViewSpacing
-        rightColumnStackView.spacing = viewModel.stackViewSpacing
+        contentStackView.spacing = stackViewSpacing
+        rightColumnStackView.spacing = stackViewSpacing
 
         avatarImageView.layer.masksToBounds = true
-        avatarImageView.layer.cornerRadius = viewModel.avatarCornerRadius
+        avatarImageView.layer.cornerRadius = avatarCornerRadius
         viewModel.rx.avatarImage.bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
 
         nicknameLabel.text = viewModel.nickname
-        nicknameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nicknameLabel.textColor = UIColor(named: "tweet.nick.color")
 
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 17)
         contentLabel.text = viewModel.content
-        contentLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
+        imageGridView.isHidden = viewModel.isImageGridHidden
         imageGridView.gridLayout = viewModel.gridLayout
         viewModel.rx.imageGrid
             .observeOn(MainScheduler.instance)
@@ -69,12 +68,8 @@ final class TweetViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        imageGridView.isHidden = viewModel.isImageGridHidden
-        imageGridView.setContentCompressionResistancePriority(.required, for: .vertical)
-        
         commentListView.comments = viewModel.comments
         commentListView.isHidden = viewModel.isCommentListHidden
-        commentListView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     private func addViewConstraints() {
@@ -84,7 +79,7 @@ final class TweetViewController: UIViewController {
         imageGridView.translatesAutoresizingMaskIntoConstraints = false
         commentListView.translatesAutoresizingMaskIntoConstraints = false
 
-        avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: avatarSize).isActive = true
         avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor, multiplier: 1).isActive = true
 
         rightColumnStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -95,9 +90,14 @@ final class TweetViewController: UIViewController {
         contentStackView.axis = .horizontal
         contentStackView.alignment = .top
         
-        contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        contentStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
+        contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin).isActive = true
+        contentStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
+        contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin).isActive = true
     }
+    
+    private let stackViewSpacing: CGFloat = 10
+    private let avatarCornerRadius: CGFloat = 4
+    private let avatarSize: CGFloat = 40
+    private let margin: CGFloat = 10
 }

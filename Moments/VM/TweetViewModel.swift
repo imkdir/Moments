@@ -19,9 +19,6 @@ final class TweetViewModel: NSObject {
         self.imageProvider = imageProvider
     }
 
-    let stackViewSpacing: CGFloat = 10
-    let avatarCornerRadius: CGFloat = 4
-
     var nickname: String? {
         return model.sender?.nick
     }
@@ -50,13 +47,17 @@ final class TweetViewModel: NSObject {
     private func calculateGridLayout(imageCount: Int) -> [[CGFloat]] {
         switch imageCount {
         case 0: return []
-        case 1: return [[180]]
-        case 2, 4:
-            return Array(repeating: CGFloat(80), count: imageCount).subgroup(bound: 2)
+        case 1: return [[singleImageSize]]
         default:
-            return Array(repeating: CGFloat(80), count: imageCount).subgroup(bound: 3)
+            var bound = 3
+            if imageCount == 2 || imageCount == 4 {
+                bound = 2
+            }
+            return Array(repeating: CGFloat(80), count: imageCount).subgroup(bound: bound)
         }
     }
+    
+    private let singleImageSize: CGFloat = 180
 }
 
 extension Reactive where Base == TweetViewModel {

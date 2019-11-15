@@ -12,14 +12,9 @@ final class ImageGridView: UIView {
     
     var gridLayout: [[CGFloat]] = []  {
         didSet {
-            let vStack = UIStackView(arrangedSubviews: gridLayout.map({ row in
-                let hStack = UIStackView(arrangedSubviews: row.map(makeGridItemView(size:)))
-                hStack.axis = .horizontal
-                hStack.spacing = 4
-                return hStack
-            }))
+            let vStack = UIStackView(arrangedSubviews: gridLayout.map(makeHStack(sizes:)))
             vStack.axis = .vertical
-            vStack.spacing = 4
+            vStack.spacing = stackSpacing
             vStack.alignment = .leading
             self.stackView = vStack
         }
@@ -50,7 +45,14 @@ final class ImageGridView: UIView {
         }
     }
     
-    private func makeGridItemView(size: CGFloat) -> UIImageView {
+    private func makeHStack(sizes: [CGFloat]) -> UIStackView {
+        let hStack = UIStackView(arrangedSubviews: sizes.map(makeImageView(size:)))
+        hStack.axis = .horizontal
+        hStack.spacing = stackSpacing
+        return hStack
+    }
+    
+    private func makeImageView(size: CGFloat) -> UIImageView {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.backgroundColor = .lightGray
@@ -60,4 +62,6 @@ final class ImageGridView: UIView {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }
+    
+    private let stackSpacing: CGFloat = 4
 }
