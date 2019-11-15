@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class RootViewController: UIViewController {
     private let tableView = UITableView()
@@ -14,6 +16,7 @@ final class RootViewController: UIViewController {
 
     private var tweetListViewModel: TweetListViewModel
     private var userViewModel: UserViewModel
+    private var disposeBag = DisposeBag()
 
     init(tweetListViewModel: TweetListViewModel, userViewModel: UserViewModel) {
         self.tweetListViewModel = tweetListViewModel
@@ -62,6 +65,18 @@ final class RootViewController: UIViewController {
         tableView.separatorColor = UIColor(named: "tableview.separator")
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.alpha = 0
+        tableView.refreshControl = refreshControl
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [unowned self] in
+                self.tweetListViewModel.resetLoadedContent()
+                self.tableView.reloadData()
+                refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func addViewConstraints() {
@@ -93,5 +108,20 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.sectionHeaderHeight))
+    }
+}
+
+extension RootViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let isPullingUp = scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height
+        tweetListViewModel.shouldLoadMore = isPullingUp || tweetListViewModel.shouldLoadMore
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let isAtBottom = scrollView.contentOffset.y + scrollView.frame.height == scrollView.contentSize.height
+        if isAtBottom && tweetListViewModel.didLoadMore() {
+            tableView.reloadData()
+            tweetListViewModel.shouldLoadMore.toggle()
+        }
     }
 }

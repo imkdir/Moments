@@ -69,11 +69,11 @@ final class CommentListView: UIView {
         let attributed = NSMutableAttributedString(
             string: comment.nickname,
             attributes: [
-                .font: UIFont.systemFont(ofSize: 17, weight: .semibold),
+                .font: UIFont.systemFont(ofSize: 15, weight: .semibold),
                 .foregroundColor: UIColor(named: "tweet.nick.color")!])
         attributed.append(NSAttributedString(
             string: ": \(comment.content)",
-            attributes: [.font: UIFont.systemFont(ofSize: 17)]))
+            attributes: [.font: UIFont.systemFont(ofSize: 15)]))
         label.attributedText = attributed
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
