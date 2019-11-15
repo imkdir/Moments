@@ -4,6 +4,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class TweetViewController: UIViewController {
     private let avatarImageView = UIImageView()
@@ -16,6 +18,7 @@ final class TweetViewController: UIViewController {
     private var contentStackView: UIStackView!
 
     private var viewModel: TweetViewModel
+    private var disposeBag = DisposeBag()
 
     init(viewModel: TweetViewModel) {
         self.viewModel = viewModel
@@ -46,18 +49,31 @@ final class TweetViewController: UIViewController {
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = viewModel.avatarCornerRadius
-        avatarImageView.image = viewModel.avatarImage
+        viewModel.rx.avatarImage.bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
 
         nicknameLabel.text = viewModel.nickname
+        nicknameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         nicknameLabel.textColor = UIColor(named: "tweet.nick.color")
 
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 17)
         contentLabel.text = viewModel.content
-
-        imageGridView.imageGrid = viewModel.imageGrid
+        contentLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        
+        viewModel.rx.imageGrid
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [imageGridView] in
+                imageGridView.imageGrid = $0
+            })
+            .disposed(by: disposeBag)
+        
+        imageGridView.isHidden = viewModel.isImageGridHidden
+        imageGridView.setContentCompressionResistancePriority(.required, for: .vertical)
+        
         commentListView.comments = viewModel.comments
+        commentListView.isHidden = viewModel.isCommentListHidden
+        commentListView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     private func addViewConstraints() {

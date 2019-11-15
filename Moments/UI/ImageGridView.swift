@@ -16,12 +16,7 @@ final class ImageGridView: UIView {
         didSet {
             let vStack = UIStackView(arrangedSubviews: imageGrid.content.map({ images in
                 let hStack = UIStackView(arrangedSubviews: images.map({
-                    let imageView = UIImageView(image: $0)
-                    imageView.backgroundColor = .lightGray
-                    imageView.translatesAutoresizingMaskIntoConstraints = false
-                    imageView.widthAnchor.constraint(equalToConstant: imageGrid.size.width).isActive = true
-                    imageView.heightAnchor.constraint(equalToConstant: imageGrid.size.height).isActive = true
-                    return imageView
+                    self.makeGridItemView(image: $0, size: imageGrid.size)
                 }))
                 hStack.axis = .horizontal
                 hStack.spacing = 4
@@ -45,5 +40,15 @@ final class ImageGridView: UIView {
             stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         }
+    }
+    
+    private func makeGridItemView(image: UIImage, size: CGSize) -> UIImageView {
+        let imageView = UIImageView(image: image)
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }
 }

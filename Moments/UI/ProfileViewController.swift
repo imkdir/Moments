@@ -4,6 +4,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ProfileViewController: UIViewController {
     private let profileImageView = UIImageView()
@@ -11,6 +13,7 @@ final class ProfileViewController: UIViewController {
     private let nicknameLabel = UILabel()
 
     private var viewModel: UserViewModel
+    private var disposeBag = DisposeBag()
 
     init(viewModel: UserViewModel) {
         self.viewModel = viewModel
@@ -39,7 +42,7 @@ final class ProfileViewController: UIViewController {
         profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         profileImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: padding).isActive = true
+        view.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
 
         // put avatar at bottom left corner, with bottom offset
         view.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: margin).isActive = true
@@ -54,10 +57,12 @@ final class ProfileViewController: UIViewController {
     }
 
     private func configureAppearance() {
+        view.clipsToBounds = false
+        
+        profileImageView.backgroundColor = UIColor(named: "tableview.background")
+        viewModel.rx.profileImage.bind(to: profileImageView.rx.image).disposed(by: disposeBag)
 
-        profileImageView.image = viewModel.profileImage
-
-        avatarImageView.image = viewModel.avatarImage
+        viewModel.rx.avatarImage.bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 10
 
@@ -74,7 +79,6 @@ final class ProfileViewController: UIViewController {
         view.addSubview(nicknameLabel)
     }
     
-    private let padding: CGFloat = 60
     private let margin: CGFloat = 16
     private let avatarImageOffsetY: CGFloat = 20
     private let avatarLeadingMargin: CGFloat = 20

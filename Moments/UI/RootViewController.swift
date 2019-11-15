@@ -32,6 +32,12 @@ final class RootViewController: UIViewController {
         configureAppearance()
         addViewConstraints()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
 
     private func addViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +50,8 @@ final class RootViewController: UIViewController {
 
     private func setupViewHierarchy() {
         view.addSubview(tableView)
-        let headerFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 435)
+        let size = UIScreen.main.bounds.width
+        let headerFrame = CGRect(x: 0, y: 0, width: size, height: size)
         let headerView = UIView(frame: headerFrame)
         let vc = ProfileViewController(viewModel: self.userViewModel)
         self.addChild(vc)
@@ -59,20 +66,22 @@ final class RootViewController: UIViewController {
     }
 
     private func configureAppearance() {
-        tableView.backgroundColor = UIColor(named: "tableview.background")
-        tableView.estimatedRowHeight = 100
-        tableView.contentInset = UIEdgeInsets(top: -55, left: 0, bottom: 0, right: 0)
+        tableView.sectionHeaderHeight = 60
+        tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.contentInset = UIEdgeInsets(top: -55, left: 0, bottom: 0, right: 0)
         tableView.separatorInset = .zero
         tableView.separatorColor = UIColor(named: "tableview.separator")
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
 
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
-extension RootViewController: UITableViewDataSource {
+extension RootViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweetListViewModel.numberOfRows
     }
@@ -86,5 +95,14 @@ extension RootViewController: UITableViewDataSource {
         cell.configure(with: vc)
         vc.didMove(toParent: self)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.sectionHeaderHeight))
     }
 }

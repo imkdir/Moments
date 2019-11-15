@@ -7,17 +7,21 @@ import Foundation
 import MomentModel
 
 struct TweetListViewModel {
-    var model: [Tweet]
+    private var model: [Tweet]
+    private var imageProvider: ImageProvider
 
     func tweetViewModel(atIndexPath indexPath: IndexPath) -> TweetViewModel {
-        return TweetViewModel(model: model[indexPath.row])
+        return TweetViewModel(model: model[indexPath.row], imageProvider: imageProvider)
     }
 
     var numberOfRows: Int {
         return model.count
     }
 
-    init(model: [Tweet]) {
-        self.model = model
+    init(model: [Tweet], imageProvider: ImageProvider) {
+        self.imageProvider = imageProvider
+        self.model = model.filter({
+            ($0.content != nil || $0.images != nil)
+        })
     }
 }

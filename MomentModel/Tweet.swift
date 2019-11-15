@@ -8,24 +8,41 @@
 
 import Foundation
 
-public struct Tweet: Codable {
+public struct Tweet: Decodable {
 
-    public let content: String
-    public let images: [Image]
-    public let sender: Sender
-    public let comments: [Comment]
+    public let content: String?
+    public let images: [Image]?
+    public let sender: Sender?
+    public let comments: [Comment]?
     
-    public struct Image: Codable {
+    public struct Image: Decodable {
         public let url: String
     }
 
-    public struct Sender: Codable {
+    public struct Sender: Decodable {
         public let nick: String
         public let avatar: String
     }
 
-    public struct Comment: Codable {
+    public struct Comment: Decodable {
         public let content: String
         public let sender: Sender
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case content
+        case images
+        case sender
+        case comments
+    }
+}
+
+extension Tweet {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.content = try container.decodeIfPresent(String.self, forKey: .content)
+        self.images = try container.decodeIfPresent([Image].self, forKey: .images)
+        self.sender = try container.decodeIfPresent(Sender.self, forKey: .sender)
+        self.comments = try container.decodeIfPresent([Comment].self, forKey: .comments)
     }
 }

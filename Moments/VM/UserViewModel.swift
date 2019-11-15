@@ -7,26 +7,31 @@
 //
 
 import UIKit
+import RxSwift
 import MomentModel
 
-struct UserViewModel {
-    private var model: User
+final class UserViewModel: NSObject {
+    fileprivate var model: User
+    fileprivate var imageProvider: ImageProvider
 
     let avatarSize: CGFloat = 70
-
-    var profileImage: UIImage {
-        return UIImage()
-    }
-
-    var avatarImage: UIImage {
-        return UIImage()
-    }
 
     var nickname: String {
         return model.nick
     }
 
-    init(model: User) {
+    init(model: User, imageProvider: ImageProvider) {
         self.model = model
+        self.imageProvider = imageProvider
+    }
+}
+
+extension Reactive where Base == UserViewModel {
+    var avatarImage: Observable<UIImage> {
+        return base.imageProvider.rx.image(path: base.model.avatar).map({ $0 ?? UIImage() })
+    }
+    
+    var profileImage: Observable<UIImage> {
+        return base.imageProvider.rx.image(path: base.model.profileImage).map({ $0 ?? UIImage() })
     }
 }

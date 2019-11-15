@@ -2,26 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="finish ui prototype">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/tung.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModel/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModel/MomentModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModel/MomentRepository.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModel/Tweet.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModel/User.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModelTests/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentModelTests/MomentModelTests.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moments/VM/UserViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudService/CloudService.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudService/CloudService.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudService/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudService/Moment.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudServiceTests/CloudServiceTests.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CloudServiceTests/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MomentModel/MomentRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/MomentModel/MomentRepository.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MomentModel/Tweet.swift" beforeDir="false" afterPath="$PROJECT_DIR$/MomentModel/Tweet.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MomentModel/User.swift" beforeDir="false" afterPath="$PROJECT_DIR$/MomentModel/User.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/CommentListView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/CommentListView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/ImageGridView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/ImageGridView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/ProfileViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/ProfileViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/RootViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/RootViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/TweetViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/TweetViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/WrapperTableViewCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/WrapperTableViewCell.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/TweetViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/TweetViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +84,8 @@
       <option name="presentableId" value="Default" />
       <updated>1573726255713</updated>
       <workItem from="1573726258518" duration="1956000" />
-      <workItem from="1573735034853" duration="15438000" />
+      <workItem from="1573735034853" duration="16006000" />
+      <workItem from="1573774351411" duration="250000" />
     </task>
     <servers />
   </component>
@@ -102,7 +97,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

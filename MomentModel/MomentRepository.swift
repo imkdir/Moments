@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RxSwift
 
 public protocol MomentRepository {
-    func getUser(byId id: String) -> User
-    func getTweets(byUser user: User) -> [Tweet]
+    func getUser(byId id: String) -> Observable<User>
+    func getTweets(byUserId userId: String) -> Observable<[Tweet]>
 }
