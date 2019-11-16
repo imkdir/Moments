@@ -18,7 +18,7 @@ public enum CloudServiceError: Error {
 public struct CloudService {
     internal static var baseURL: URL = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!
     
-    internal let provider = MoyaProvider<Moment>()
+    internal var provider = MoyaProvider<Moment>()
     
     public init(baseURL: URL) {
         CloudService.baseURL = baseURL

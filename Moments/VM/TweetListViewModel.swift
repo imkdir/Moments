@@ -15,20 +15,23 @@ struct TweetListViewModel {
     var shouldLoadMore: Bool = false
     
     mutating func resetLoadedContent() {
-        length = 5
+        length = min(model.count, 5)
     }
 
     func tweetViewModel(atIndexPath indexPath: IndexPath) -> TweetViewModel {
         TweetViewModel(model: model[indexPath.row], imageProvider: imageProvider)
     }
 
-    var numberOfRows: Int { length }
+    var numberOfRows: Int {
+        min(model.count, length)
+    }
 
     init(model: [Tweet], imageProvider: ImageProvider) {
         self.imageProvider = imageProvider
         self.model = model.filter({
                 $0.content != nil || $0.images != nil
             })
+        resetLoadedContent()
     }
 
     mutating func didLoadMore() -> Bool {

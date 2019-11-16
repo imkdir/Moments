@@ -26,6 +26,10 @@ final class TweetViewModel: NSObject {
     var comments: [(content: String, nickname: String)] {
         model.comments?.map({($0.content, $0.sender.nick)}) ?? []
     }
+    
+    var isContentLabelHidden: Bool {
+        model.content?.isEmpty ?? true
+    }
 
     var isImageGridHidden: Bool {
         model.images?.isEmpty ?? true

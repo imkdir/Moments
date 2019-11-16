@@ -10,10 +10,10 @@ import Foundation
 
 public struct Tweet: Decodable {
 
-    public let content: String?
-    public let images: [Image]?
-    public let sender: Sender?
-    public let comments: [Comment]?
+    public var content: String?
+    public var images: [Image]?
+    public var sender: Sender?
+    public var comments: [Comment]?
     
     public struct Image: Decodable {
         public let url: String

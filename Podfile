@@ -17,3 +17,8 @@ target 'CloudService' do
   pod 'RxSwift'
   pod 'Alamofire'
 end
+
+target 'CloudServiceTests' do
+  pod 'Moya'
+  pod 'Moya/RxSwift'
+end

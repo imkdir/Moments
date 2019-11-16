@@ -7,28 +7,48 @@
 //
 
 import XCTest
+import Moya
+import RxSwift
 @testable import CloudService
 
 class CloudServiceTests: XCTestCase {
+    var service: CloudService!
+    var disposeBag: DisposeBag!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        service = CloudService(baseURL: URL(string: "http://example.com")!)
+        service.provider = MoyaProvider<Moment>.init(stubClosure: MoyaProvider.immediatelyStub)
+        disposeBag = DisposeBag()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        service = nil
+        disposeBag = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_getUser_shouldReturnAUserProfile() {
+        
+        let expectation = self.expectation(description: "request user profile")
+        service.getUser(byId: "dummy")
+            .subscribe(onNext: { user in
+                XCTAssertEqual(user.nick, "Tung CHENG")
+                XCTAssertEqual(user.avatar, "avatar.png")
+                XCTAssertEqual(user.profileImage, "profile-image.jpg")
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+        waitForExpectations(timeout: 0.01)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_getTweets_shouldReturnAListOfTweets() {
+        let expectation = self.expectation(description: "request tweets")
+        service.getTweets(byUserId: "dummy")
+            .subscribe(onNext: { tweets in
+                XCTAssertEqual(tweets.count, 1)
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+        waitForExpectations(timeout: 0.01)
     }
 
 }
