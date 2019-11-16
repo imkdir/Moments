@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window.rootViewController = PlaceholderViewController()
         
-        fetchProfileAndTweets(userId: "jsmith")
+        let service = CloudService(baseURL: URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!)
+        
+        fetchProfileAndTweets(service: service, userId: "jsmith")
             .retry(1)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { user, tweets in
@@ -43,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
     }
     
-    private func fetchProfileAndTweets(userId: String) -> Observable<(User, [Tweet])> {
-        let service = CloudService(baseURL: URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!)
+    private func fetchProfileAndTweets<T:MomentRepository>(service: T, userId: String) -> Observable<(User, [Tweet])> {
         return Observable.combineLatest(service.getUser(byId: userId), service.getTweets(byUserId: userId))
     }
     

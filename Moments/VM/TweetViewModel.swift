@@ -47,10 +47,7 @@ final class TweetViewModel: NSObject {
         case 0: return []
         case 1: return [[singleImageSize]]
         default:
-            var bound = 3
-            if count == 2 || count == 4 {
-                bound = 2
-            }
+            let bound = (count == 2 || count == 4) ? 2 : 3
             return Array(repeating: CGFloat(80), count: count).subgroup(bound: bound)
         }
     }
