@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MomentsTests/TweetVMTests.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MomentsTests/UserVMTest.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloudService/CloudService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/CloudService/CloudService.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloudService/Moment.swift" beforeDir="false" afterPath="$PROJECT_DIR$/CloudService/Moment.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloudServiceTests/CloudServiceTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/CloudServiceTests/CloudServiceTests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MomentModel/Tweet.swift" beforeDir="false" afterPath="$PROJECT_DIR$/MomentModel/Tweet.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MomentsTests/MomentsTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/MomentsTests/TweetListVMTests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +27,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="Moments" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -88,7 +75,7 @@
       <workItem from="1573726258518" duration="1956000" />
       <workItem from="1573735034853" duration="16006000" />
       <workItem from="1573774351411" duration="8198000" />
-      <workItem from="1573840737873" duration="8753000" />
+      <workItem from="1573840737873" duration="9083000" />
     </task>
     <task id="LOCAL-00001" summary="improve tweet list layout">
       <created>1573830086026</created>

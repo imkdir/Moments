@@ -114,12 +114,20 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension RootViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let isPullingUp = scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height
+        var safeAreaBottomInset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            safeAreaBottomInset = scrollView.safeAreaInsets.bottom
+        }
+        let isPullingUp = scrollView.contentOffset.y + scrollView.frame.height - safeAreaBottomInset > scrollView.contentSize.height
         tweetListViewModel.shouldLoadMore = isPullingUp || tweetListViewModel.shouldLoadMore
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let isAtBottom = scrollView.contentOffset.y + scrollView.frame.height == scrollView.contentSize.height
+        var safeAreaBottomInset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            safeAreaBottomInset = scrollView.safeAreaInsets.bottom
+        }
+        let isAtBottom = scrollView.contentOffset.y + scrollView.frame.height - safeAreaBottomInset - scrollView.contentSize.height <= 0.1
         if isAtBottom && tweetListViewModel.didLoadMore() {
             tableView.reloadData()
             tweetListViewModel.shouldLoadMore.toggle()
