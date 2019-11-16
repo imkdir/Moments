@@ -51,10 +51,10 @@ public extension UIView {
     
     internal func edges(equal item: UIView, edgeInsets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
-        constraints.append(leadingAnchor.constraint(equalTo: item.leadingAnchor, constant: edgeInsets.right))
-        constraints.append(trailingAnchor.constraint(equalTo: item.trailingAnchor, constant: -edgeInsets.left))
-        constraints.append(topAnchor.constraint(equalTo: item.topAnchor, constant: edgeInsets.top))
-        constraints.append(bottomAnchor.constraint(equalTo: item.bottomAnchor, constant: -edgeInsets.bottom))
+        constraints.append(align(.leading, to: item, offset: edgeInsets.right))
+        constraints.append(align(.trailing, to: item, offset: -edgeInsets.left))
+        constraints.append(align(.top, to: item, offset: edgeInsets.top))
+        constraints.append(align(.bottom, to: item, offset: -edgeInsets.bottom))
         return constraints
     }
 }

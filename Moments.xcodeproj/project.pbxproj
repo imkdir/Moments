@@ -18,24 +18,24 @@
 		367FFDFB9BA0408F2018930F /* TweetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF5F7ECD8EF186AB4ABAF /* TweetListViewModel.swift */; };
 		367FFE5E5595061A273C8C2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF18F4B0862C267920D1B /* ProfileViewController.swift */; };
 		A63F96FE237FAB760019D5F9 /* ArielLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A63F96EE237FAB760019D5F9 /* ArielLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A63F9701237FAB760019D5F9 /* ArielLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; };
-		A63F9702237FAB760019D5F9 /* ArielLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A63F970A237FABE00019D5F9 /* Ariel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9709237FABE00019D5F9 /* Ariel.swift */; };
+		A63F970B237FD0FC0019D5F9 /* ArielLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; };
+		A63F970C237FD0FC0019D5F9 /* ArielLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63F970E237FD0FE0019D5F9 /* CloudService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB923237DE65100B0D6FB /* CloudService.framework */; };
+		A63F970F237FD0FE0019D5F9 /* CloudService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB923237DE65100B0D6FB /* CloudService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63F9710237FD1010019D5F9 /* MomentModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; };
+		A63F9711237FD1010019D5F9 /* MomentModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */; };
 		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 		A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */; };
 		A64DB8F3237DD94A00B0D6FB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8F2237DD94A00B0D6FB /* UserViewModel.swift */; };
 		A64DB90F237DDFD300B0D6FB /* MomentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A64DB8FF237DDFD300B0D6FB /* MomentModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A64DB912237DDFD300B0D6FB /* MomentModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; };
-		A64DB913237DDFD300B0D6FB /* MomentModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A64DB91B237DDFDE00B0D6FB /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EE237DD0A400B0D6FB /* Tweet.swift */; };
 		A64DB91C237DDFDE00B0D6FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8F0237DD8B100B0D6FB /* User.swift */; };
 		A64DB91D237DDFDE00B0D6FB /* MomentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8F6237DDF4700B0D6FB /* MomentRepository.swift */; };
 		A64DB92C237DE65100B0D6FB /* CloudService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB923237DE65100B0D6FB /* CloudService.framework */; };
 		A64DB933237DE65100B0D6FB /* CloudServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB932237DE65100B0D6FB /* CloudServiceTests.swift */; };
 		A64DB935237DE65100B0D6FB /* CloudService.h in Headers */ = {isa = PBXBuildFile; fileRef = A64DB925237DE65100B0D6FB /* CloudService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A64DB938237DE65100B0D6FB /* CloudService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB923237DE65100B0D6FB /* CloudService.framework */; };
-		A64DB939237DE65100B0D6FB /* CloudService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB923237DE65100B0D6FB /* CloudService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A64DB941237DE7AD00B0D6FB /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB940237DE7AD00B0D6FB /* Moment.swift */; };
 		A64DB945237DF22D00B0D6FB /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB944237DF22D00B0D6FB /* CloudService.swift */; };
 		A6541755237E1DC40000EA2E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6541754237E1DC40000EA2E /* ImageCache.swift */; };
@@ -98,15 +98,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A64DB917237DDFD300B0D6FB /* Embed Frameworks */ = {
+		A63F970D237FD0FC0019D5F9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A64DB939237DE65100B0D6FB /* CloudService.framework in Embed Frameworks */,
-				A63F9702237FAB760019D5F9 /* ArielLite.framework in Embed Frameworks */,
-				A64DB913237DDFD300B0D6FB /* MomentModel.framework in Embed Frameworks */,
+				A63F9711237FD1010019D5F9 /* MomentModel.framework in Embed Frameworks */,
+				A63F970F237FD0FE0019D5F9 /* CloudService.framework in Embed Frameworks */,
+				A63F970C237FD0FC0019D5F9 /* ArielLite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,9 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A64DB938237DE65100B0D6FB /* CloudService.framework in Frameworks */,
-				A64DB912237DDFD300B0D6FB /* MomentModel.framework in Frameworks */,
-				A63F9701237FAB760019D5F9 /* ArielLite.framework in Frameworks */,
+				A63F970B237FD0FC0019D5F9 /* ArielLite.framework in Frameworks */,
+				A63F970E237FD0FE0019D5F9 /* CloudService.framework in Frameworks */,
+				A63F9710237FD1010019D5F9 /* MomentModel.framework in Frameworks */,
 				AA9970A096AC6917E584BF80 /* Pods_Moments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,8 +423,8 @@
 				367FFA03A52B189AFB627EAF /* Sources */,
 				367FF1C1B16A9FD67F4E585F /* Frameworks */,
 				367FF438DD2037D80A4C4D4B /* Resources */,
-				A64DB917237DDFD300B0D6FB /* Embed Frameworks */,
 				3BC9205107D5D8C408D33B41 /* [CP] Embed Pods Frameworks */,
+				A63F970D237FD0FC0019D5F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -980,7 +980,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB5DD10959BE19AAC59ED1DE /* Pods-Moments.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DUDTP565G4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -988,7 +987,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Moments/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.Moments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1001,7 +1000,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ED18347896D70B3F0DFEBE0 /* Pods-Moments.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DUDTP565G4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1009,7 +1007,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Moments/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.Moments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1031,7 +1029,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ArielLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.ArielLite;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1057,7 +1055,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ArielLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.ArielLite;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1082,7 +1080,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MomentModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.MomentModel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1107,7 +1105,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MomentModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.MomentModel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1137,7 +1135,7 @@
 				);
 				INFOPLIST_FILE = CloudService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.CloudService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1169,7 +1167,7 @@
 				);
 				INFOPLIST_FILE = CloudService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.CloudService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

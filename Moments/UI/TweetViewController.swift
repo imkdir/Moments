@@ -55,7 +55,7 @@ final class TweetViewController: UIViewController {
         
         nicknameLabel.text = viewModel.nickname
         nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        nicknameLabel.textColor = UIColor(named: "tweet.nick.color")
+        nicknameLabel.textColor = #colorLiteral(red: 0.3114843965, green: 0.4081265032, blue: 0.5782492161, alpha: 1)
 
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 17)

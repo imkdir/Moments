@@ -27,14 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = PlaceholderViewController()
         
         fetchProfileAndTweets(userId: "jsmith")
+            .retry(1)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { user, tweets in
                 let imageProvider = ImageProvider(cache: ImageCache.default)
                 let tweetListVM = TweetListViewModel(model: tweets, imageProvider: imageProvider)
                 let userVM = UserViewModel(model: user, imageProvider: imageProvider)
                 window.rootViewController = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)
-            }, onError: {
-                print($0.localizedDescription)
+            }, onError: { [unowned self] _ in
+                self.showLoadFailedAlert()
             })
             .disposed(by: disposeBag)
         
@@ -45,5 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func fetchProfileAndTweets(userId: String) -> Observable<(User, [Tweet])> {
         let service = CloudService(baseURL: URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!)
         return Observable.combineLatest(service.getUser(byId: userId), service.getTweets(byUserId: userId))
+    }
+    
+    private func showLoadFailedAlert() {
+        let alert = UIAlertController(title: "Network Error", message: "Please try again later.", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default, handler: {_ in exit(1) }))
+        window?.rootViewController?.present(alert, animated: true)
     }
 }

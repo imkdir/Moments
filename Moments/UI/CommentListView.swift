@@ -32,7 +32,7 @@ final class CommentListView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let fillColor = UIColor(named: "comment.background")!
+        let fillColor = #colorLiteral(red: 0.9481300116, green: 0.9530599713, blue: 0.9615300298, alpha: 1)
         let rectangle = UIBezierPath(
             rect: CGRect(
                 x: rect.minX,
@@ -67,7 +67,7 @@ final class CommentListView: UIView {
             string: comment.nickname,
             attributes: [
                 .font: UIFont.systemFont(ofSize: 15, weight: .semibold),
-                .foregroundColor: UIColor(named: "tweet.nick.color")!])
+                .foregroundColor: #colorLiteral(red: 0.3114843965, green: 0.4081265032, blue: 0.5782492161, alpha: 1)])
         attributed.append(NSAttributedString(
             string: ": \(comment.content)",
             attributes: [.font: UIFont.systemFont(ofSize: 15)]))

@@ -42,7 +42,7 @@ final class ProfileViewController: UIViewController {
     private func configureAppearance() {
         view.clipsToBounds = false
         
-        profileImageView.backgroundColor = UIColor(named: "tableview.background")
+        profileImageView.backgroundColor = #colorLiteral(red: 0.1913000047, green: 0.1961999983, blue: 0.2004300058, alpha: 1)
         profileImageView.contentMode = .scaleAspectFill
 
         avatarImageView.layer.masksToBounds = true
