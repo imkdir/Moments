@@ -14,8 +14,12 @@ final class TweetViewController: UIViewController {
     private let imageGridView = ImageGridView()
     private let commentListView = CommentListView()
 
-    private var rightColumnStackView: UIStackView!
-    private var contentStackView: UIStackView!
+    private lazy var rightColumnStackView: UIStackView = {
+        UIStackView(arrangedSubviews: [nicknameLabel, contentLabel, imageGridView, commentListView])
+    }()
+    private lazy var contentStackView: UIStackView = {
+        UIStackView(arrangedSubviews: [avatarImageView, rightColumnStackView])
+    }()
 
     private var viewModel: TweetViewModel
     private var disposeBag = DisposeBag()
@@ -35,11 +39,10 @@ final class TweetViewController: UIViewController {
         setupViewHierarchy()
         configureAppearance()
         addViewConstraints()
+        addReactiveBinding()
     }
     
     private func setupViewHierarchy() {
-        rightColumnStackView = UIStackView(arrangedSubviews: [nicknameLabel, contentLabel, imageGridView, commentListView])
-        contentStackView = UIStackView(arrangedSubviews: [avatarImageView, rightColumnStackView])
         view.addSubview(contentStackView)
     }
 
@@ -49,55 +52,61 @@ final class TweetViewController: UIViewController {
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = avatarCornerRadius
-        viewModel.rx.avatarImage.bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
-
+        
         nicknameLabel.text = viewModel.nickname
         nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nicknameLabel.textColor = UIColor(named: "tweet.nick.color")
 
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 17)
+    }
+    
+    private func addReactiveBinding() {
         contentLabel.text = viewModel.content
         
         imageGridView.isHidden = viewModel.isImageGridHidden
         imageGridView.gridLayout = viewModel.gridLayout
-        viewModel.rx.imageGrid
+        
+        commentListView.comments = viewModel.comments
+        commentListView.isHidden = viewModel.isCommentListHidden
+        
+        viewModel
+            .rx.avatarImage
+            .bind(to: avatarImageView.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .rx.imageGrid
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [imageGridView] in
                 imageGridView.imageGrid = $0
             })
             .disposed(by: disposeBag)
-        
-        commentListView.comments = viewModel.comments
-        commentListView.isHidden = viewModel.isCommentListHidden
     }
 
     private func addViewConstraints() {
+
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.set(.width, to: avatarSize).isActive = true
+        avatarImageView.aspect(ratio: 1).isActive = true
+        
         nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
         imageGridView.translatesAutoresizingMaskIntoConstraints = false
         commentListView.translatesAutoresizingMaskIntoConstraints = false
-
-        avatarImageView.widthAnchor.constraint(equalToConstant: avatarSize).isActive = true
-        avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor, multiplier: 1).isActive = true
 
         rightColumnStackView.translatesAutoresizingMaskIntoConstraints = false
         rightColumnStackView.axis = .vertical
         rightColumnStackView.alignment = .fill
 
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentStackView.edges(equal: view, edgeInsets: edgeInsets)
         contentStackView.axis = .horizontal
         contentStackView.alignment = .top
-        
-        contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
-        contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin).isActive = true
-        contentStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
-        contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin).isActive = true
     }
     
     private let stackViewSpacing: CGFloat = 10
     private let avatarCornerRadius: CGFloat = 4
     private let avatarSize: CGFloat = 40
-    private let margin: CGFloat = 10
+    private let edgeInsets: UIEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
 }

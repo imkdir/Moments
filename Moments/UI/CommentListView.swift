@@ -57,10 +57,7 @@ final class CommentListView: UIView {
             oldValue?.removeFromSuperview()
             addSubview(stackView)
             stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8 + offsetY).isActive = true
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+            stackView.edges(equal: self, edgeInsets: edgeInsets)
         }
     }
     
@@ -82,4 +79,7 @@ final class CommentListView: UIView {
     
     private let offsetY: CGFloat = 4
     private let offsetX: CGFloat = 4
+    private var edgeInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 8 + offsetY, left: 8, bottom: 8, right: 8)
+    }
 }

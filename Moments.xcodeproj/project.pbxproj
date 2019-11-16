@@ -17,6 +17,10 @@
 		367FFC7223A96C015D8AAB21 /* MomentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF1A8DC48DF7D49352F19 /* MomentsTests.swift */; };
 		367FFDFB9BA0408F2018930F /* TweetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF5F7ECD8EF186AB4ABAF /* TweetListViewModel.swift */; };
 		367FFE5E5595061A273C8C2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF18F4B0862C267920D1B /* ProfileViewController.swift */; };
+		A63F96FE237FAB760019D5F9 /* ArielLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A63F96EE237FAB760019D5F9 /* ArielLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A63F9701237FAB760019D5F9 /* ArielLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; };
+		A63F9702237FAB760019D5F9 /* ArielLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63F96EC237FAB760019D5F9 /* ArielLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63F970A237FABE00019D5F9 /* Ariel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9709237FABE00019D5F9 /* Ariel.swift */; };
 		A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */; };
 		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 		A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */; };
@@ -48,6 +52,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 367FFF288CEF696060595CF6;
 			remoteInfo = Moments;
+		};
+		A63F96FF237FAB760019D5F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 367FFA6B9B06A43293390EA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A63F96EB237FAB760019D5F9;
+			remoteInfo = ArielLite;
 		};
 		A64DB910237DDFD300B0D6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -94,6 +105,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A64DB939237DE65100B0D6FB /* CloudService.framework in Embed Frameworks */,
+				A63F9702237FAB760019D5F9 /* ArielLite.framework in Embed Frameworks */,
 				A64DB913237DDFD300B0D6FB /* MomentModel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -122,6 +134,10 @@
 		97ADB7BDD3A8BDF1492C4A9F /* Pods_CloudService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9854E4405F355DF1D3345AE8 /* Pods-CloudService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudService.release.xcconfig"; path = "Target Support Files/Pods-CloudService/Pods-CloudService.release.xcconfig"; sourceTree = "<group>"; };
 		9A7622E351EE375D461162A7 /* Pods-MomentModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomentModel.debug.xcconfig"; path = "Target Support Files/Pods-MomentModel/Pods-MomentModel.debug.xcconfig"; sourceTree = "<group>"; };
+		A63F96EC237FAB760019D5F9 /* ArielLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArielLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A63F96EE237FAB760019D5F9 /* ArielLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArielLite.h; sourceTree = "<group>"; };
+		A63F96EF237FAB760019D5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A63F9709237FABE00019D5F9 /* Ariel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ariel.swift; sourceTree = "<group>"; };
 		A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
@@ -155,11 +171,19 @@
 			files = (
 				A64DB938237DE65100B0D6FB /* CloudService.framework in Frameworks */,
 				A64DB912237DDFD300B0D6FB /* MomentModel.framework in Frameworks */,
+				A63F9701237FAB760019D5F9 /* ArielLite.framework in Frameworks */,
 				AA9970A096AC6917E584BF80 /* Pods_Moments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		367FF6B6B99D09C389CE49BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A63F96E9237FAB760019D5F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -212,6 +236,7 @@
 				A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */,
 				A64DB923237DE65100B0D6FB /* CloudService.framework */,
 				A64DB92B237DE65100B0D6FB /* CloudServiceTests.xctest */,
+				A63F96EC237FAB760019D5F9 /* ArielLite.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				367FF139DFC005FC968B3FE2 /* Products */,
+				A63F96ED237FAB760019D5F9 /* ArielLite */,
 				A64DB8FE237DDFD300B0D6FB /* MomentModel */,
 				A64DB924237DE65100B0D6FB /* CloudService */,
 				A64DB931237DE65100B0D6FB /* CloudServiceTests */,
@@ -246,8 +272,7 @@
 				367FF7D6BEFC39CEF7DBE25D /* Assets.xcassets */,
 				367FF01466836B20D7A9684B /* LaunchScreen.storyboard */,
 				367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */,
-				A6541754237E1DC40000EA2E /* ImageCache.swift */,
-				A6541756237E221E0000EA2E /* ImageProvider.swift */,
+				A63F96E6237FA9230019D5F9 /* Util */,
 				A64DB8EB237DCCB200B0D6FB /* UI */,
 				A64DB8F4237DDE4D00B0D6FB /* VM */,
 			);
@@ -265,6 +290,25 @@
 				EB5DD10959BE19AAC59ED1DE /* Pods-Moments.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A63F96E6237FA9230019D5F9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A6541754237E1DC40000EA2E /* ImageCache.swift */,
+				A6541756237E221E0000EA2E /* ImageProvider.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A63F96ED237FAB760019D5F9 /* ArielLite */ = {
+			isa = PBXGroup;
+			children = (
+				A63F96EE237FAB760019D5F9 /* ArielLite.h */,
+				A63F9709237FABE00019D5F9 /* Ariel.swift */,
+				A63F96EF237FAB760019D5F9 /* Info.plist */,
+			);
+			path = ArielLite;
 			sourceTree = "<group>";
 		};
 		A64DB8EB237DCCB200B0D6FB /* UI */ = {
@@ -326,6 +370,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		A63F96E7237FAB760019D5F9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A63F96FE237FAB760019D5F9 /* ArielLite.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A64DB8F8237DDFD300B0D6FB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,11 +431,30 @@
 			dependencies = (
 				A64DB911237DDFD300B0D6FB /* PBXTargetDependency */,
 				A64DB937237DE65100B0D6FB /* PBXTargetDependency */,
+				A63F9700237FAB760019D5F9 /* PBXTargetDependency */,
 			);
 			name = Moments;
 			productName = Moments;
 			productReference = 367FF7567D271C29BFD10A21 /* Moments.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A63F96EB237FAB760019D5F9 /* ArielLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A63F9703237FAB760019D5F9 /* Build configuration list for PBXNativeTarget "ArielLite" */;
+			buildPhases = (
+				A63F96E7237FAB760019D5F9 /* Headers */,
+				A63F96E8237FAB760019D5F9 /* Sources */,
+				A63F96E9237FAB760019D5F9 /* Frameworks */,
+				A63F96EA237FAB760019D5F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArielLite;
+			productName = ArielLite;
+			productReference = A63F96EC237FAB760019D5F9 /* ArielLite.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		A64DB8FC237DDFD300B0D6FB /* MomentModel */ = {
 			isa = PBXNativeTarget;
@@ -456,6 +527,12 @@
 					367FFF288CEF696060595CF6 = {
 						DevelopmentTeam = DUDTP565G4;
 					};
+					A63F96EB237FAB760019D5F9 = {
+						CreatedOnToolsVersion = 11.2.1;
+						DevelopmentTeam = DUDTP565G4;
+						LastSwiftMigration = 1120;
+						ProvisioningStyle = Automatic;
+					};
 					A64DB8FC237DDFD300B0D6FB = {
 						CreatedOnToolsVersion = 11.2.1;
 						DevelopmentTeam = DUDTP565G4;
@@ -493,6 +570,7 @@
 				A64DB8FC237DDFD300B0D6FB /* MomentModel */,
 				A64DB922237DE65100B0D6FB /* CloudService */,
 				A64DB92A237DE65100B0D6FB /* CloudServiceTests */,
+				A63F96EB237FAB760019D5F9 /* ArielLite */,
 			);
 		};
 /* End PBXProject section */
@@ -508,6 +586,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		367FFE47FEE2327712A99948 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A63F96EA237FAB760019D5F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -661,6 +746,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A63F96E8237FAB760019D5F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A63F970A237FABE00019D5F9 /* Ariel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A64DB8F9237DDFD300B0D6FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -695,6 +788,11 @@
 			isa = PBXTargetDependency;
 			target = 367FFF288CEF696060595CF6 /* Moments */;
 			targetProxy = 367FF8A5D14BD820A60C2428 /* PBXContainerItemProxy */;
+		};
+		A63F9700237FAB760019D5F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A63F96EB237FAB760019D5F9 /* ArielLite */;
+			targetProxy = A63F96FF237FAB760019D5F9 /* PBXContainerItemProxy */;
 		};
 		A64DB911237DDFD300B0D6FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -920,6 +1018,57 @@
 			};
 			name = Debug;
 		};
+		A63F9704237FAB760019D5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DUDTP565G4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ArielLite/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.ArielLite;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A63F9705237FAB760019D5F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DUDTP565G4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ArielLite/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.ArielLite;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A64DB915237DDFD300B0D6FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9A7622E351EE375D461162A7 /* Pods-MomentModel.debug.xcconfig */;
@@ -1091,6 +1240,15 @@
 			buildConfigurations = (
 				367FF5E0676E605DD74DD25D /* Debug */,
 				367FFE4C4BB5B3E12704648A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A63F9703237FAB760019D5F9 /* Build configuration list for PBXNativeTarget "ArielLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A63F9704237FAB760019D5F9 /* Debug */,
+				A63F9705237FAB760019D5F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

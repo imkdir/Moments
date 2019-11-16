@@ -19,13 +19,9 @@ final class TweetViewModel: NSObject {
         self.imageProvider = imageProvider
     }
 
-    var nickname: String? {
-        model.sender?.nick
-    }
+    var nickname: String? { model.sender?.nick }
 
-    var content: String? {
-        model.content
-    }
+    var content: String? { model.content }
 
     var comments: [(content: String, nickname: String)] {
         model.comments?.map({($0.content, $0.sender.nick)}) ?? []
@@ -40,20 +36,22 @@ final class TweetViewModel: NSObject {
     }
     
     var gridLayout: [[CGFloat]] {
-        guard let images = model.images else { return [] }
-        return calculateGridLayout(imageCount: images.count)
+        guard let images = model.images else {
+            return []
+        }
+        return calculateGridLayout(count: images.count)
     }
     
-    private func calculateGridLayout(imageCount: Int) -> [[CGFloat]] {
-        switch imageCount {
+    private func calculateGridLayout(count: Int) -> [[CGFloat]] {
+        switch count {
         case 0: return []
         case 1: return [[singleImageSize]]
         default:
             var bound = 3
-            if imageCount == 2 || imageCount == 4 {
+            if count == 2 || count == 4 {
                 bound = 2
             }
-            return Array(repeating: CGFloat(80), count: imageCount).subgroup(bound: bound)
+            return Array(repeating: CGFloat(80), count: count).subgroup(bound: bound)
         }
     }
     

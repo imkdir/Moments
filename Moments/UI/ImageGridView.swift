@@ -38,10 +38,7 @@ final class ImageGridView: UIView {
             oldValue?.removeFromSuperview()
             addSubview(stackView)
             stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-            stackView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor).isActive = true
-            stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            stackView.edges(equal: self)
         }
     }
     
@@ -57,8 +54,8 @@ final class ImageGridView: UIView {
         imageView.clipsToBounds = true
         imageView.backgroundColor = UIColor(white: 0, alpha: 0.1)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
+        imageView.set(.width, to: size).isActive = true
+        imageView.aspect(ratio: 1, priority: .defaultHigh).isActive = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }

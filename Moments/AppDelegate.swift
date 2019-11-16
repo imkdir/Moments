@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         fetchProfileAndTweets(userId: "jsmith")
             .observeOn(MainScheduler.instance)
-            .retry(1)
             .subscribe(onNext: { user, tweets in
                 let imageProvider = ImageProvider(cache: ImageCache.default)
                 let tweetListVM = TweetListViewModel(model: tweets, imageProvider: imageProvider)

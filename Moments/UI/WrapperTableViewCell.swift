@@ -14,10 +14,7 @@ final class WrapperTableViewCell: UITableViewCell {
 
         contentView.addSubview(content.view)
         content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        content.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        content.view.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        content.view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        content.view.edges(equal: contentView)
     }
 
     override func prepareForReuse() {

@@ -22,14 +22,12 @@ struct TweetListViewModel {
         TweetViewModel(model: model[indexPath.row], imageProvider: imageProvider)
     }
 
-    var numberOfRows: Int {
-        length
-    }
+    var numberOfRows: Int { length }
 
     init(model: [Tweet], imageProvider: ImageProvider) {
         self.imageProvider = imageProvider
         self.model = model.filter({
-            ($0.content != nil || $0.images != nil)
+                $0.content != nil || $0.images != nil
             })
     }
 

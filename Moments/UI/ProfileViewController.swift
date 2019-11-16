@@ -30,6 +30,7 @@ final class ProfileViewController: UIViewController {
         setupViewHierarchy()
         configureAppearance()
         addViewConstraints()
+        addReactiveBinding()
     }
     
     private func setupViewHierarchy() {
@@ -42,17 +43,32 @@ final class ProfileViewController: UIViewController {
         view.clipsToBounds = false
         
         profileImageView.backgroundColor = UIColor(named: "tableview.background")
-        viewModel.rx.profileImage.bind(to: profileImageView.rx.image).disposed(by: disposeBag)
+        profileImageView.contentMode = .scaleAspectFill
 
-        viewModel.rx.avatarImage.bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 10
+        avatarImageView.backgroundColor = .white
+        avatarImageView.contentMode = .scaleAspectFit
 
-        nicknameLabel.text = viewModel.nickname
+        nicknameLabel.textAlignment = .right
         nicknameLabel.textColor = .white
         nicknameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         nicknameLabel.shadowColor = .darkGray
         nicknameLabel.shadowOffset = CGSize(width: 0, height: 1)
+    }
+    
+    private func addReactiveBinding() {
+        nicknameLabel.text = viewModel.nickname
+        
+        viewModel
+            .rx.profileImage
+            .bind(to: profileImageView.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .rx.avatarImage
+            .bind(to: avatarImageView.rx.image)
+            .disposed(by: disposeBag)
     }
     
     private func addViewConstraints() {
@@ -60,19 +76,16 @@ final class ProfileViewController: UIViewController {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
+        profileImageView.edges(equal: view)
+        
+        view.align(.trailing, to: avatarImageView, offset: margin).isActive = true
+        avatarImageView.aspect(ratio: 1).isActive = true
+        avatarImageView.set(.height, to: avatarSize).isActive = true
+        avatarImageView.align(.bottom, to: view, offset: avatarImageOffsetY).isActive = true
 
-        view.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: margin).isActive = true
-        avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: avatarSize).isActive = true
-        avatarImageView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: avatarImageOffsetY).isActive = true
-
-        nicknameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: margin).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: nicknameLabel.trailingAnchor, constant: avatarLeadingMargin).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: nickLabelBottomMargin).isActive = true
+        nicknameLabel.align(.leading, to: view, offset: margin).isActive = true
+        avatarImageView.attach(to: nicknameLabel, padding: avatarLeadingMargin, direction: .horizontal).isActive = true
+        view.align(.bottom, to: nicknameLabel, offset: nickLabelBottomMargin).isActive = true
     }
     
     private let margin: CGFloat = 16

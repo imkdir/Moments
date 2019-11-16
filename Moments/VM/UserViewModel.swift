@@ -14,9 +14,7 @@ final class UserViewModel: NSObject {
     fileprivate var model: User
     fileprivate var imageProvider: ImageProvider
 
-    var nickname: String {
-        model.nick
-    }
+    var nickname: String { model.nick }
 
     init(model: User, imageProvider: ImageProvider) {
         self.model = model

@@ -9,10 +9,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ArielLite
 
 final class RootViewController: UIViewController {
     private let tableView = UITableView()
-    private var profileViewController: ProfileViewController!
+    
+    private lazy var headerView: UIView = {
+        let size = UIScreen.main.bounds.width
+        let headerFrame = CGRect(x: 0, y: 0, width: size, height: size)
+        let headerView = UIView(frame: headerFrame)
+        let vc = ProfileViewController(viewModel: userViewModel)
+        self.addChild(vc)
+        headerView.addSubview(vc.view)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        vc.view.edges(equal: headerView)
+        vc.didMove(toParent: self)
+        return headerView
+    }()
 
     private var tweetListViewModel: TweetListViewModel
     private var userViewModel: UserViewModel
@@ -34,22 +47,11 @@ final class RootViewController: UIViewController {
         setupViewHierarchy()
         configureAppearance()
         addViewConstraints()
+        addReactiveBinding()
     }
 
     private func setupViewHierarchy() {
         view.addSubview(tableView)
-        let size = UIScreen.main.bounds.width
-        let headerFrame = CGRect(x: 0, y: 0, width: size, height: size)
-        let headerView = UIView(frame: headerFrame)
-        let vc = ProfileViewController(viewModel: self.userViewModel)
-        self.addChild(vc)
-        headerView.addSubview(vc.view)
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
-        vc.view.leadingAnchor.constraint(equalTo: headerView.leadingAnchor).isActive = true
-        vc.view.trailingAnchor.constraint(equalTo: headerView.trailingAnchor).isActive = true
-        vc.view.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
-        vc.view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
-        vc.didMove(toParent: self)
         tableView.tableHeaderView = headerView
     }
 
@@ -65,27 +67,26 @@ final class RootViewController: UIViewController {
         tableView.separatorColor = UIColor(named: "tableview.separator")
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
-        
+    }
+    
+    private func addViewConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.edges(equal: view)
+    }
+    
+    private func addReactiveBinding() {
         let refreshControl = UIRefreshControl()
         refreshControl.alpha = 0
         tableView.refreshControl = refreshControl
         
-        refreshControl.rx.controlEvent(.valueChanged)
+        refreshControl
+            .rx.controlEvent([.valueChanged])
             .subscribe(onNext: { [unowned self] in
                 self.tweetListViewModel.resetLoadedContent()
                 self.tableView.reloadData()
                 refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func addViewConstraints() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 

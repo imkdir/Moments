@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="clean code">
+    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ArielLite/Ariel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ArielLite/ArielLite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ArielLite/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloudService/CloudService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/CloudService/CloudService.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MomentModelTests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MomentModelTests/MomentModelTests.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/ImageCache.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/Util/ImageCache.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/ImageProvider.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/Util/ImageProvider.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/CommentListView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/CommentListView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/UI/ImageGridView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/ImageGridView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/PlaceholderViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/PlaceholderViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/ProfileViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/ProfileViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/UI/RootViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/RootViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/VM/ImageCache.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/ImageCache.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/VM/ImageProvider.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/ImageProvider.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/TweetViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/TweetViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/WrapperTableViewCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/WrapperTableViewCell.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/VM/UserViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/UserViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +93,7 @@
       <workItem from="1573726258518" duration="1956000" />
       <workItem from="1573735034853" duration="16006000" />
       <workItem from="1573774351411" duration="8198000" />
-      <workItem from="1573840737873" duration="5090000" />
+      <workItem from="1573840737873" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="improve tweet list layout">
       <created>1573830086026</created>
@@ -102,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573834286603</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactoring image cache classes">
+      <created>1573868264651</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573868264651</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improve tweet list layout" />
     <MESSAGE value="clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
+    <MESSAGE value="refactoring image cache classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring image cache classes" />
   </component>
 </project>
