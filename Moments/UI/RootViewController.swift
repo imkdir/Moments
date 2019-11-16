@@ -114,23 +114,31 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension RootViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var safeAreaBottomInset: CGFloat = 0
-        if #available(iOS 11.0, *) {
-            safeAreaBottomInset = scrollView.safeAreaInsets.bottom
-        }
-        let isPullingUp = scrollView.contentOffset.y + scrollView.frame.height - safeAreaBottomInset > scrollView.contentSize.height
-        tweetListViewModel.shouldLoadMore = isPullingUp || tweetListViewModel.shouldLoadMore
+        tweetListViewModel.shouldLoadMore = scrollView.isPullingUp || tweetListViewModel.shouldLoadMore
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var safeAreaBottomInset: CGFloat = 0
-        if #available(iOS 11.0, *) {
-            safeAreaBottomInset = scrollView.safeAreaInsets.bottom
-        }
-        let isAtBottom = scrollView.contentOffset.y + scrollView.frame.height - safeAreaBottomInset - scrollView.contentSize.height <= 0.1
-        if isAtBottom && tweetListViewModel.didLoadMore() {
+        if scrollView.isNearBottom && tweetListViewModel.didLoadMore() {
             tableView.reloadData()
             tweetListViewModel.shouldLoadMore.toggle()
         }
+    }
+}
+
+extension UIScrollView {
+    fileprivate var isPullingUp: Bool {
+        var safeAreaBottomInset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            safeAreaBottomInset = safeAreaInsets.bottom
+        }
+        return contentOffset.y + frame.height - safeAreaBottomInset > contentSize.height
+    }
+    
+    fileprivate var isNearBottom: Bool {
+        var safeAreaBottomInset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            safeAreaBottomInset = safeAreaInsets.bottom
+        }
+        return contentOffset.y + frame.height - safeAreaBottomInset - contentSize.height < 0.1
     }
 }

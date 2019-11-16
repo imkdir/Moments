@@ -51,7 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func showLoadFailedAlert() {
         let alert = UIAlertController(title: "Network Error", message: "Please try again later.", preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: {_ in exit(1) }))
+        alert.addAction(.init(title: "OK", style: .default, handler: {_ in
+            UIApplication.shared.perform(Selector("suspend"))
+            Thread.sleep(forTimeInterval: 2)
+            exit(0)
+        }))
         window?.rootViewController?.present(alert, animated: true)
     }
 }

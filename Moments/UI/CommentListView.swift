@@ -77,8 +77,8 @@ final class CommentListView: UIView {
         return label
     }
     
-    private let offsetY: CGFloat = 4
-    private let offsetX: CGFloat = 4
+    private let offsetY: CGFloat = 5
+    private let offsetX: CGFloat = 5
     private var edgeInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 8 + offsetY, left: 8, bottom: 8, right: 8)
     }

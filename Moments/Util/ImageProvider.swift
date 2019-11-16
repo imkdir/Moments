@@ -31,6 +31,7 @@ extension Reactive where Base == ImageProvider {
         let session = URLSession(configuration: .default)
         return session.rx
             .data(request: URLRequest(url: url))
+            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
             .map(UIImage.init(data:))
             .do(onNext: { [base] in
                 base.cache[cacheKey] = $0
