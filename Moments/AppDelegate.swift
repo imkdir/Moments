@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .observeOn(MainScheduler.instance)
             .retry(1)
             .subscribe(onNext: { user, tweets in
-                let imageProvider = ImageProvider(cache: ImageCache(dir: .itemReplacementDirectory))
+                let imageProvider = ImageProvider(cache: ImageCache.default)
                 let tweetListVM = TweetListViewModel(model: tweets, imageProvider: imageProvider)
                 let userVM = UserViewModel(model: user, imageProvider: imageProvider)
                 window.rootViewController = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)

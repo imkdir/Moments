@@ -15,7 +15,7 @@ final class UserViewModel: NSObject {
     fileprivate var imageProvider: ImageProvider
 
     var nickname: String {
-        return model.nick
+        model.nick
     }
 
     init(model: User, imageProvider: ImageProvider) {
@@ -25,11 +25,11 @@ final class UserViewModel: NSObject {
 }
 
 extension Reactive where Base == UserViewModel {
-    var avatarImage: Observable<UIImage> {
-        return base.imageProvider.rx.image(path: base.model.avatar).map({ $0 ?? UIImage() })
+    var avatarImage: Observable<UIImage?> {
+        base.imageProvider.rx.image(path: base.model.avatar)
     }
     
-    var profileImage: Observable<UIImage> {
-        return base.imageProvider.rx.image(path: base.model.profileImage).map({ $0 ?? UIImage() })
+    var profileImage: Observable<UIImage?> {
+        base.imageProvider.rx.image(path: base.model.profileImage)
     }
 }

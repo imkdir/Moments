@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="">
+    <list default="true" id="f41dfc08-3914-415a-a806-f35fefe5ca58" name="Default Changelist" comment="clean code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moments/UI/CommentListView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/CommentListView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloudService/CloudService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/CloudService/CloudService.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MomentModelTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MomentModelTests/MomentModelTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Moments.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/UI/ImageGridView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/ImageGridView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/UI/RootViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/UI/RootViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/VM/ImageCache.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/ImageCache.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/VM/ImageProvider.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/ImageProvider.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetListViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/TweetViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moments/VM/UserViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Moments/VM/UserViewModel.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +48,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -76,6 +86,7 @@
       <workItem from="1573726258518" duration="1956000" />
       <workItem from="1573735034853" duration="16006000" />
       <workItem from="1573774351411" duration="8198000" />
+      <workItem from="1573840737873" duration="5090000" />
     </task>
     <task id="LOCAL-00001" summary="improve tweet list layout">
       <created>1573830086026</created>

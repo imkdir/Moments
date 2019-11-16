@@ -20,23 +20,23 @@ final class TweetViewModel: NSObject {
     }
 
     var nickname: String? {
-        return model.sender?.nick
+        model.sender?.nick
     }
 
     var content: String? {
-        return model.content
+        model.content
     }
 
     var comments: [(content: String, nickname: String)] {
-        return model.comments?.map({($0.content, $0.sender.nick)}) ?? []
+        model.comments?.map({($0.content, $0.sender.nick)}) ?? []
     }
 
     var isImageGridHidden: Bool {
-        return model.images?.isEmpty ?? true
+        model.images?.isEmpty ?? true
     }
 
     var isCommentListHidden: Bool {
-        return model.comments?.isEmpty ?? true
+        model.comments?.isEmpty ?? true
     }
     
     var gridLayout: [[CGFloat]] {
@@ -62,13 +62,11 @@ final class TweetViewModel: NSObject {
 
 extension Reactive where Base == TweetViewModel {
     
-    var avatarImage: Observable<UIImage> {
+    var avatarImage: Observable<UIImage?> {
         guard let path = base.model.sender?.avatar else {
-            return .just(UIImage())
+            return .just(nil)
         }
-        return base.imageProvider
-            .rx.image(path: path)
-            .map({ $0 ?? UIImage() })
+        return base.imageProvider .rx.image(path: path)
     }
     
     var imageGrid: Observable<[UIImage]> {

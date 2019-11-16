@@ -19,11 +19,11 @@ struct TweetListViewModel {
     }
 
     func tweetViewModel(atIndexPath indexPath: IndexPath) -> TweetViewModel {
-        return TweetViewModel(model: model[indexPath.row], imageProvider: imageProvider)
+        TweetViewModel(model: model[indexPath.row], imageProvider: imageProvider)
     }
 
     var numberOfRows: Int {
-        return length
+        length
     }
 
     init(model: [Tweet], imageProvider: ImageProvider) {

@@ -1,16 +1,17 @@
 import UIKit
 
-private let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-
 final class ImageCache: NSObject {
     
     private let storage = NSCache<NSString, UIImage>()
-    private let manager = FileManager.default
-    
-    private var dir: FileManager.SearchPathDirectory
-    
-    init(dir: FileManager.SearchPathDirectory) {
-        self.dir = dir
+    private var url: URL
+
+    static var `default`: ImageCache {
+        let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        return ImageCache(url: cachesURL)
+    }
+
+    init(url: URL) {
+        self.url = url
         super.init()
     }
     
@@ -22,27 +23,25 @@ final class ImageCache: NSObject {
             return readFromCaches(withPathName: key)
         }
         set {
-            if storage.object(forKey: key as NSString) != nil {
-                return
-            }
-            storage.removeObject(forKey: key as NSString)
             if let value: UIImage = newValue {
                 storage.setObject(value, forKey: key as NSString)
-                if let data = value.jpegData(compressionQuality: 0) {
+                if let data = value.jpegData(compressionQuality: 0.5) {
                     saveToCaches(withPathName: key, data: data)
                 }
+            } else {
+                storage.removeObject(forKey: key as NSString)
             }
         }
     }
     
     @discardableResult
     private func saveToCaches(withPathName name: String, data: Data) -> Bool {
-        let fileURL = cachesURL.appendingPathComponent(name)
+        let fileURL = url.appendingPathComponent(name)
         do {
-            if manager.fileExists(atPath: fileURL.path) {
+            if FileManager.default.fileExists(atPath: fileURL.path) {
                 let tempURL = try temporaryURL(for: fileURL).appendingPathComponent(UUID().uuidString)
                 try data.write(to: tempURL, options: .atomicWrite)
-                _ = try manager.replaceItemAt(fileURL, withItemAt: tempURL)
+                _ = try FileManager.default.replaceItemAt(fileURL, withItemAt: tempURL)
                 return true
             } else {
                 try data.write(to: fileURL, options: .atomicWrite)
@@ -54,10 +53,10 @@ final class ImageCache: NSObject {
     }
     
     private func readFromCaches(withPathName name: String) -> UIImage? {
-        return UIImage(contentsOfFile: cachesURL.appendingPathComponent(name).path)
+        UIImage(contentsOfFile: url.appendingPathComponent(name).path)
     }
     
     private func temporaryURL(for url: URL) throws -> URL {
-        return try manager.url(for: dir, in: .userDomainMask, appropriateFor: url, create: true)
+        try FileManager.default.url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: url, create: true)
     }
 }

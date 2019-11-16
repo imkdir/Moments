@@ -55,7 +55,7 @@ final class ImageGridView: UIView {
     private func makeImageView(size: CGFloat) -> UIImageView {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = UIColor(white: 0, alpha: 0.1)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: size).isActive = true

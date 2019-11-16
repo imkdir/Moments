@@ -21,8 +21,6 @@
 		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 		A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */; };
 		A64DB8F3237DD94A00B0D6FB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8F2237DD94A00B0D6FB /* UserViewModel.swift */; };
-		A64DB906237DDFD300B0D6FB /* MomentModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; };
-		A64DB90D237DDFD300B0D6FB /* MomentModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB90C237DDFD300B0D6FB /* MomentModelTests.swift */; };
 		A64DB90F237DDFD300B0D6FB /* MomentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A64DB8FF237DDFD300B0D6FB /* MomentModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A64DB912237DDFD300B0D6FB /* MomentModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; };
 		A64DB913237DDFD300B0D6FB /* MomentModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,20 +43,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		367FF8A5D14BD820A60C2428 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 367FFA6B9B06A43293390EA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 367FFF288CEF696060595CF6;
-			remoteInfo = Moments;
-		};
-		A64DB907237DDFD300B0D6FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 367FFA6B9B06A43293390EA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A64DB8FC237DDFD300B0D6FB;
-			remoteInfo = MomentModel;
-		};
-		A64DB909237DDFD300B0D6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 367FFA6B9B06A43293390EA6 /* Project object */;
 			proxyType = 1;
@@ -148,9 +132,6 @@
 		A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MomentModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64DB8FF237DDFD300B0D6FB /* MomentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentModel.h; sourceTree = "<group>"; };
 		A64DB900237DDFD300B0D6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A64DB905237DDFD300B0D6FB /* MomentModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MomentModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A64DB90C237DDFD300B0D6FB /* MomentModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentModelTests.swift; sourceTree = "<group>"; };
-		A64DB90E237DDFD300B0D6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A64DB923237DE65100B0D6FB /* CloudService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CloudService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64DB925237DE65100B0D6FB /* CloudService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudService.h; sourceTree = "<group>"; };
 		A64DB926237DE65100B0D6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,14 +174,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A64DB902237DDFD300B0D6FB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A64DB906237DDFD300B0D6FB /* MomentModel.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A64DB920237DE65100B0D6FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,7 +210,6 @@
 				367FF7567D271C29BFD10A21 /* Moments.app */,
 				367FF4F89368AAB2353B7667 /* MomentsTests.xctest */,
 				A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */,
-				A64DB905237DDFD300B0D6FB /* MomentModelTests.xctest */,
 				A64DB923237DE65100B0D6FB /* CloudService.framework */,
 				A64DB92B237DE65100B0D6FB /* CloudServiceTests.xctest */,
 			);
@@ -258,7 +230,6 @@
 			children = (
 				367FF139DFC005FC968B3FE2 /* Products */,
 				A64DB8FE237DDFD300B0D6FB /* MomentModel */,
-				A64DB90B237DDFD300B0D6FB /* MomentModelTests */,
 				A64DB924237DE65100B0D6FB /* CloudService */,
 				A64DB931237DE65100B0D6FB /* CloudServiceTests */,
 				367FFA5B3F92AF806CBA5DC5 /* Moments */,
@@ -275,6 +246,8 @@
 				367FF7D6BEFC39CEF7DBE25D /* Assets.xcassets */,
 				367FF01466836B20D7A9684B /* LaunchScreen.storyboard */,
 				367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */,
+				A6541754237E1DC40000EA2E /* ImageCache.swift */,
+				A6541756237E221E0000EA2E /* ImageProvider.swift */,
 				A64DB8EB237DCCB200B0D6FB /* UI */,
 				A64DB8F4237DDE4D00B0D6FB /* VM */,
 			);
@@ -314,8 +287,6 @@
 				367FF5F7ECD8EF186AB4ABAF /* TweetListViewModel.swift */,
 				A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */,
 				A64DB8F2237DD94A00B0D6FB /* UserViewModel.swift */,
-				A6541754237E1DC40000EA2E /* ImageCache.swift */,
-				A6541756237E221E0000EA2E /* ImageProvider.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -330,15 +301,6 @@
 				A64DB900237DDFD300B0D6FB /* Info.plist */,
 			);
 			path = MomentModel;
-			sourceTree = "<group>";
-		};
-		A64DB90B237DDFD300B0D6FB /* MomentModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				A64DB90C237DDFD300B0D6FB /* MomentModelTests.swift */,
-				A64DB90E237DDFD300B0D6FB /* Info.plist */,
-			);
-			path = MomentModelTests;
 			sourceTree = "<group>";
 		};
 		A64DB924237DE65100B0D6FB /* CloudService */ = {
@@ -442,25 +404,6 @@
 			productReference = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A64DB904237DDFD300B0D6FB /* MomentModelTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A64DB918237DDFD300B0D6FB /* Build configuration list for PBXNativeTarget "MomentModelTests" */;
-			buildPhases = (
-				A64DB901237DDFD300B0D6FB /* Sources */,
-				A64DB902237DDFD300B0D6FB /* Frameworks */,
-				A64DB903237DDFD300B0D6FB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A64DB908237DDFD300B0D6FB /* PBXTargetDependency */,
-				A64DB90A237DDFD300B0D6FB /* PBXTargetDependency */,
-			);
-			name = MomentModelTests;
-			productName = MomentModelTests;
-			productReference = A64DB905237DDFD300B0D6FB /* MomentModelTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A64DB922237DE65100B0D6FB /* CloudService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A64DB93E237DE65100B0D6FB /* Build configuration list for PBXNativeTarget "CloudService" */;
@@ -518,12 +461,6 @@
 						DevelopmentTeam = DUDTP565G4;
 						ProvisioningStyle = Automatic;
 					};
-					A64DB904237DDFD300B0D6FB = {
-						CreatedOnToolsVersion = 11.2.1;
-						DevelopmentTeam = DUDTP565G4;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 367FFF288CEF696060595CF6;
-					};
 					A64DB922237DE65100B0D6FB = {
 						CreatedOnToolsVersion = 11.2.1;
 						DevelopmentTeam = DUDTP565G4;
@@ -554,7 +491,6 @@
 				367FFF288CEF696060595CF6 /* Moments */,
 				367FF8F24441476881C10D33 /* MomentsTests */,
 				A64DB8FC237DDFD300B0D6FB /* MomentModel */,
-				A64DB904237DDFD300B0D6FB /* MomentModelTests */,
 				A64DB922237DE65100B0D6FB /* CloudService */,
 				A64DB92A237DE65100B0D6FB /* CloudServiceTests */,
 			);
@@ -579,13 +515,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A64DB8FB237DDFD300B0D6FB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A64DB903237DDFD300B0D6FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -742,14 +671,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A64DB901237DDFD300B0D6FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A64DB90D237DDFD300B0D6FB /* MomentModelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A64DB91F237DE65100B0D6FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -774,16 +695,6 @@
 			isa = PBXTargetDependency;
 			target = 367FFF288CEF696060595CF6 /* Moments */;
 			targetProxy = 367FF8A5D14BD820A60C2428 /* PBXContainerItemProxy */;
-		};
-		A64DB908237DDFD300B0D6FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A64DB8FC237DDFD300B0D6FB /* MomentModel */;
-			targetProxy = A64DB907237DDFD300B0D6FB /* PBXContainerItemProxy */;
-		};
-		A64DB90A237DDFD300B0D6FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 367FFF288CEF696060595CF6 /* Moments */;
-			targetProxy = A64DB909237DDFD300B0D6FB /* PBXContainerItemProxy */;
 		};
 		A64DB911237DDFD300B0D6FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1059,38 +970,6 @@
 			};
 			name = Release;
 		};
-		A64DB919237DDFD300B0D6FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUDTP565G4;
-				INFOPLIST_FILE = MomentModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.MomentModelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moments.app/Moments";
-			};
-			name = Debug;
-		};
-		A64DB91A237DDFD300B0D6FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUDTP565G4;
-				INFOPLIST_FILE = MomentModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.imkdir.MomentModelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moments.app/Moments";
-			};
-			name = Release;
-		};
 		A64DB93A237DE65100B0D6FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B6015A8C708B04DA7D1CEF1 /* Pods-CloudService.debug.xcconfig */;
@@ -1221,15 +1100,6 @@
 			buildConfigurations = (
 				A64DB915237DDFD300B0D6FB /* Debug */,
 				A64DB916237DDFD300B0D6FB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A64DB918237DDFD300B0D6FB /* Build configuration list for PBXNativeTarget "MomentModelTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A64DB919237DDFD300B0D6FB /* Debug */,
-				A64DB91A237DDFD300B0D6FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

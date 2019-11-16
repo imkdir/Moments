@@ -20,19 +20,20 @@ final class ImageProvider: NSObject {
 }
 
 extension Reactive where Base == ImageProvider {
-    func image(path: String) -> Observable<UIImage?> {
-        if let cachedResult = base.cache[path] {
-            return .just(cachedResult)
-        }
+    func image(path: String, cacheGroupId: String = #function) -> Observable<UIImage?> {
         guard let url = URL(string: path) else {
             return .just(nil)
+        }
+        let cacheKey = cacheGroupId + url.lastPathComponent
+        if let cachedResult = base.cache[cacheKey] {
+            return .just(cachedResult)
         }
         let session = URLSession(configuration: .default)
         return session.rx
             .data(request: URLRequest(url: url))
             .map(UIImage.init(data:))
             .do(onNext: { [base] in
-                base.cache[path] = $0
+                base.cache[cacheKey] = $0
             })
     }
 }

@@ -16,7 +16,7 @@ public enum CloudServiceError: Error {
 }
 
 public struct CloudService {
-    public static var baseURL: URL = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!
+    internal static var baseURL: URL = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com")!
     
     internal let provider = MoyaProvider<Moment>()
     
@@ -25,7 +25,7 @@ public struct CloudService {
     }
     
     internal func request<T:Decodable>(_ token: Moment) -> Observable<T> {
-        return provider.rx
+        provider.rx
             .request(token)
             .map(unwrapResponse)
             .asObservable()
@@ -43,10 +43,10 @@ public struct CloudService {
 extension CloudService: MomentRepository {
 
     public func getUser(byId id: String) -> Observable<User> {
-        return request(.userProfile(id: id))
+        request(.userProfile(id: id))
     }
     
     public func getTweets(byUserId userId: String) -> Observable<[Tweet]> {
-        return request(.tweets(userId: userId))
+        request(.tweets(userId: userId))
     }
 }
