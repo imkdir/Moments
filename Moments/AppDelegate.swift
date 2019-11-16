@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import MomentModel
 import CloudService
+import UIWindowTransitions
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let imageProvider = ImageProvider(cache: ImageCache.default)
                 let tweetListVM = TweetListViewModel(model: tweets, imageProvider: imageProvider)
                 let userVM = UserViewModel(model: user, imageProvider: imageProvider)
-                window.rootViewController = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)
+                let rootVC = RootViewController(tweetListViewModel: tweetListVM, userViewModel: userVM)
+                let options = UIWindow.TransitionOptions(direction: .fade, style: .easeIn)
+                window.setRootViewController(rootVC, options: options)
             }, onError: { [unowned self] _ in
                 self.showLoadFailedAlert()
             })

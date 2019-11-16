@@ -1,6 +1,10 @@
 import UIKit
 
-final class ImageCache: NSObject {
+protocol ImageCacheProtocol: NSObjectProtocol {
+    subscript(key: String) -> UIImage? { get set }
+}
+
+final class ImageCache: NSObject, ImageCacheProtocol {
     
     private let storage = NSCache<NSString, UIImage>()
     private var url: URL

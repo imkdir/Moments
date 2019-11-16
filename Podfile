@@ -1,10 +1,11 @@
-platform :ios, '13.0'
+platform :ios, '9.0'
 
 use_frameworks!
 
 target 'Moments' do
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'UIWindowTransitions'
 end
 
 target 'MomentModel' do

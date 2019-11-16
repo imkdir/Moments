@@ -12,11 +12,11 @@ import MomentModel
 
 final class UserViewModel: NSObject {
     fileprivate var model: User
-    fileprivate var imageProvider: ImageProvider
+    fileprivate var imageProvider: ImageProviderProtocol
 
     var nickname: String { model.nick }
 
-    init(model: User, imageProvider: ImageProvider) {
+    init(model: User, imageProvider: ImageProviderProtocol) {
         self.model = model
         self.imageProvider = imageProvider
     }
@@ -24,10 +24,10 @@ final class UserViewModel: NSObject {
 
 extension Reactive where Base == UserViewModel {
     var avatarImage: Observable<UIImage?> {
-        base.imageProvider.rx.image(path: base.model.avatar)
+        base.imageProvider.rx_image(path: base.model.avatar)
     }
     
     var profileImage: Observable<UIImage?> {
-        base.imageProvider.rx.image(path: base.model.profileImage)
+        base.imageProvider.rx_image(path: base.model.profileImage)
     }
 }

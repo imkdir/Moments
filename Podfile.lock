@@ -12,6 +12,7 @@ PODS:
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
+  - UIWindowTransitions (0.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - RxCocoa
   - RxSwift
+  - UIWindowTransitions
 
 SPEC REPOS:
   trunk:
@@ -27,6 +29,7 @@ SPEC REPOS:
     - Result
     - RxCocoa
     - RxSwift
+    - UIWindowTransitions
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -34,7 +37,8 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
 
-PODFILE CHECKSUM: 10b6ee15e590d0857ce94fc0edaf7ce1dd75d196
+PODFILE CHECKSUM: 048a63452d010271604e0040f708431649af1de6
 
 COCOAPODS: 1.8.4

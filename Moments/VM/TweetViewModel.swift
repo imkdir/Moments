@@ -12,9 +12,9 @@ import MomentModel
 
 final class TweetViewModel: NSObject {
     fileprivate var model: Tweet
-    fileprivate var imageProvider: ImageProvider
+    fileprivate var imageProvider: ImageProviderProtocol
     
-    init(model: Tweet, imageProvider: ImageProvider) {
+    init(model: Tweet, imageProvider: ImageProviderProtocol) {
         self.model = model
         self.imageProvider = imageProvider
     }
@@ -65,12 +65,12 @@ extension Reactive where Base == TweetViewModel {
         guard let path = base.model.sender?.avatar else {
             return .just(nil)
         }
-        return base.imageProvider .rx.image(path: path)
+        return base.imageProvider.rx_image(path: path)
     }
     
     var imageGrid: Observable<[UIImage]> {
         let transform: (Tweet.Image) -> Observable<UIImage?> = { [base] in
-            base.imageProvider.rx.image(path: $0.url)
+            base.imageProvider.rx_image(path: $0.url)
         }
         guard let images = base.model.images else {
             return .just([])

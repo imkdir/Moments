@@ -8,7 +8,7 @@ import MomentModel
 
 struct TweetListViewModel {
     private var model: [Tweet]
-    private var imageProvider: ImageProvider
+    private var imageProvider: ImageProviderProtocol
     
     private var length: Int = 5
     
@@ -26,7 +26,7 @@ struct TweetListViewModel {
         min(model.count, length)
     }
 
-    init(model: [Tweet], imageProvider: ImageProvider) {
+    init(model: [Tweet], imageProvider: ImageProviderProtocol) {
         self.imageProvider = imageProvider
         self.model = model.filter({
                 $0.content != nil || $0.images != nil

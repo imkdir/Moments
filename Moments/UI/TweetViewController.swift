@@ -63,9 +63,10 @@ final class TweetViewController: UIViewController {
     
     private func addReactiveBinding() {
         contentLabel.text = viewModel.content
+        contentLabel.isHidden = viewModel.isContentLabelHidden
         
-        imageGridView.isHidden = viewModel.isImageGridHidden
         imageGridView.gridLayout = viewModel.gridLayout
+        imageGridView.isHidden = viewModel.isImageGridHidden
         
         commentListView.comments = viewModel.comments
         commentListView.isHidden = viewModel.isCommentListHidden
