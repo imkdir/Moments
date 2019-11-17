@@ -8,6 +8,10 @@ target 'Moments' do
   pod 'UIWindowTransitions'
 end
 
+target 'MomentsTests' do
+  pod 'RxSwift'
+end
+
 target 'MomentModel' do
   pod 'RxSwift'
 end

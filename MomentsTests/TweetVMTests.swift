@@ -13,13 +13,11 @@ import XCTest
 class TweetVMTests: XCTestCase {
     
     var model: Tweet!
-    var imageProvider: ImageProvider!
+    var imageProvider: ImageProviderProtocol!
     var viewModel: TweetViewModel!
     
     override func setUp() {
-        let url = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!
-        let imageCache = ImageCache(url: url)
-        imageProvider = ImageProvider(cache: imageCache)
+        imageProvider = DummyImageProvider()
         
         model = Tweet(
             content: "dummy",

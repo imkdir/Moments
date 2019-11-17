@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AE5C98CBFFCE3F59B083611 /* Pods_MomentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDADB627B88F399279A65D0 /* Pods_MomentsTests.framework */; };
 		367FF2BCFA1CF435788A1085 /* WrapperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFA788313ED9C72F91D0F /* WrapperTableViewCell.swift */; };
 		367FF2C37F8B6843D69E7B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FF4DAAE9F8FA48ED237CD /* AppDelegate.swift */; };
 		367FF5B99220D2F6DC2F8B84 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FFF37CD553B5920B7F403 /* RootViewController.swift */; };
@@ -27,6 +28,7 @@
 		A63F9711237FD1010019D5F9 /* MomentModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64DB8FD237DDFD300B0D6FB /* MomentModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A63F9713237FFD2B0019D5F9 /* TweetVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9712237FFD2B0019D5F9 /* TweetVMTests.swift */; };
 		A63F9715238006010019D5F9 /* UserVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9714238006010019D5F9 /* UserVMTest.swift */; };
+		A63F97172380DA9F0019D5F9 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F97162380DA9F0019D5F9 /* TestHelper.swift */; };
 		A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */; };
 		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 		A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */; };
@@ -135,7 +137,10 @@
 		4B6015A8C708B04DA7D1CEF1 /* Pods-CloudService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudService.debug.xcconfig"; path = "Target Support Files/Pods-CloudService/Pods-CloudService.debug.xcconfig"; sourceTree = "<group>"; };
 		576EA3A0D67015931E20C1AC /* Pods-CloudServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudServiceTests.release.xcconfig"; path = "Target Support Files/Pods-CloudServiceTests/Pods-CloudServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		6ED18347896D70B3F0DFEBE0 /* Pods-Moments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moments.debug.xcconfig"; path = "Target Support Files/Pods-Moments/Pods-Moments.debug.xcconfig"; sourceTree = "<group>"; };
+		7CDADB627B88F399279A65D0 /* Pods_MomentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MomentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		825A52F4BB2078C4A5DD5B54 /* Pods_CloudServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		853A94B857126804570D3DA9 /* Pods-MomentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomentsTests.release.xcconfig"; path = "Target Support Files/Pods-MomentsTests/Pods-MomentsTests.release.xcconfig"; sourceTree = "<group>"; };
+		91AAB4A1C032BE8551C806E4 /* Pods-MomentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomentsTests.debug.xcconfig"; path = "Target Support Files/Pods-MomentsTests/Pods-MomentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		96F97AFED7B5AB6E7E032349 /* Pods_Moments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9854E4405F355DF1D3345AE8 /* Pods-CloudService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudService.release.xcconfig"; path = "Target Support Files/Pods-CloudService/Pods-CloudService.release.xcconfig"; sourceTree = "<group>"; };
 		9A7622E351EE375D461162A7 /* Pods-MomentModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomentModel.debug.xcconfig"; path = "Target Support Files/Pods-MomentModel/Pods-MomentModel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +150,7 @@
 		A63F9709237FABE00019D5F9 /* Ariel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ariel.swift; sourceTree = "<group>"; };
 		A63F9712237FFD2B0019D5F9 /* TweetVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVMTests.swift; sourceTree = "<group>"; };
 		A63F9714238006010019D5F9 /* UserVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVMTest.swift; sourceTree = "<group>"; };
+		A63F97162380DA9F0019D5F9 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE5C98CBFFCE3F59B083611 /* Pods_MomentsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +239,7 @@
 				825A52F4BB2078C4A5DD5B54 /* Pods_CloudServiceTests.framework */,
 				13F361BDB8FA9C65191D74B2 /* Pods_MomentModel.framework */,
 				96F97AFED7B5AB6E7E032349 /* Pods_Moments.framework */,
+				7CDADB627B88F399279A65D0 /* Pods_MomentsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				367FFD697460FA6299CF8A7E /* Info.plist */,
+				A63F97162380DA9F0019D5F9 /* TestHelper.swift */,
 				367FF1A8DC48DF7D49352F19 /* TweetListVMTests.swift */,
 				A63F9712237FFD2B0019D5F9 /* TweetVMTests.swift */,
 				A63F9714238006010019D5F9 /* UserVMTest.swift */,
@@ -300,6 +309,8 @@
 				EB5DD10959BE19AAC59ED1DE /* Pods-Moments.release.xcconfig */,
 				BA70E74542965D2990EDFA6A /* Pods-CloudServiceTests.debug.xcconfig */,
 				576EA3A0D67015931E20C1AC /* Pods-CloudServiceTests.release.xcconfig */,
+				91AAB4A1C032BE8551C806E4 /* Pods-MomentsTests.debug.xcconfig */,
+				853A94B857126804570D3DA9 /* Pods-MomentsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -413,9 +424,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 367FFE82DDDAC4EB5BAFC4AB /* Build configuration list for PBXNativeTarget "MomentsTests" */;
 			buildPhases = (
+				672338474CBD68A238EA45DA /* [CP] Check Pods Manifest.lock */,
 				367FFA721C3C34BA9A28DCB0 /* Sources */,
 				367FF6B6B99D09C389CE49BA /* Frameworks */,
 				367FFE47FEE2327712A99948 /* Resources */,
+				18C7D329F54E28CA652C27F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -709,6 +722,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		18C7D329F54E28CA652C27F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MomentsTests/Pods-MomentsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MomentsTests/Pods-MomentsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		672338474CBD68A238EA45DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MomentsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		969DB0293EBFE1FC02428333 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -807,6 +860,7 @@
 				A63F9713237FFD2B0019D5F9 /* TweetVMTests.swift in Sources */,
 				A63F9715238006010019D5F9 /* UserVMTest.swift in Sources */,
 				367FFC7223A96C015D8AAB21 /* TweetListVMTests.swift in Sources */,
+				A63F97172380DA9F0019D5F9 /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +953,7 @@
 /* Begin XCBuildConfiguration section */
 		367FF5E0676E605DD74DD25D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91AAB4A1C032BE8551C806E4 /* Pods-MomentsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Moments.app/Moments";
 				INFOPLIST_FILE = MomentsTests/Info.plist;
@@ -1028,6 +1083,7 @@
 		};
 		367FFE4C4BB5B3E12704648A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 853A94B857126804570D3DA9 /* Pods-MomentsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Moments.app/Moments";
 				INFOPLIST_FILE = MomentsTests/Info.plist;

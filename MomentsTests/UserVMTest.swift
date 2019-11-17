@@ -12,13 +12,11 @@ import XCTest
 
 class UserVMTest: XCTestCase {
     var model: User!
-    var imageProvider: ImageProvider!
+    var imageProvider: ImageProviderProtocol!
     var viewModel: UserViewModel!
 
     override func setUp() {
-        let url = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!
-        let imageCache = ImageCache(url: url)
-        imageProvider = ImageProvider(cache: imageCache)
+        imageProvider = DummyImageProvider()
         
         model = User(profileImage: "profile-image.jpg", avatar: "avatar.png", nick: "Dummy")
     }

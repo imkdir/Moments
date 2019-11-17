@@ -15,10 +15,7 @@ class TweetListVMTests: XCTestCase {
     
     override func setUp() {
         let model: [Tweet] = (0 ... 15).map({ Tweet(content: "Dummy \($0)") })
-        let url = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!
-        let imageCache = ImageCache(url: url)
-        let imageProvider = ImageProvider(cache: imageCache)
-        viewModel = TweetListViewModel(model: model, imageProvider: imageProvider)
+        viewModel = TweetListViewModel(model: model, imageProvider: DummyImageProvider())
     }
 
     override func tearDown() {
