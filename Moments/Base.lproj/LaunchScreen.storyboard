@@ -14,21 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngv-ey-Yev">
-                                <rect key="frame" x="0.0" y="-55" width="375" height="375"/>
-                                <color key="backgroundColor" red="0.1912996173" green="0.19620049000000001" blue="0.2004325092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ngv-ey-Yev" secondAttribute="height" multiplier="1:1" id="xeJ-61-HKA"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="ngv-ey-Yev" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-55" id="PMZ-Hx-126"/>
-                            <constraint firstItem="ngv-ey-Yev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bXl-Qd-hUV"/>
-                            <constraint firstItem="ngv-ey-Yev" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iGo-ua-3zp"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

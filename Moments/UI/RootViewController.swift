@@ -80,10 +80,10 @@ final class RootViewController: UIViewController {
             .startWith(UIDevice.current.orientation)
             .map({ $0.isLandscape })
             .distinctUntilChanged()
-            .map({ [bounds = UIScreen.main.bounds] isLandscape in
+            .map({ [bounds = UIScreen.main.bounds, isPad = UIDevice.current.userInterfaceIdiom == .pad] isLandscape in
                 isLandscape
                     ? CGSize(width: bounds.height, height: bounds.width * 0.5)
-                    : CGSize(width: bounds.width, height: bounds.width)
+                    : CGSize(width: bounds.width, height: bounds.width * (isPad ? 0.5 : 1))
             })
             .subscribe(onNext: { [unowned self] in
                 self.prepareProfileViewControllerForReuse()

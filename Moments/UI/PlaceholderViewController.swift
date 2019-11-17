@@ -28,7 +28,8 @@ final class PlaceholderViewController: UIViewController {
         headerView.align(.leading, to: view).isActive = true
         headerView.align(.trailing, to: view).isActive = true
         headerView.align(.top, to: view, offset: -35).isActive = true
-        headerView.aspect(ratio: 1).isActive = true
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        headerView.aspect(ratio: isPad ? 2 : 1).isActive = true
         
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         avatarView.align(.trailing, to: view, offset: -16).isActive = true

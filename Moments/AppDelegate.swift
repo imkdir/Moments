@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func compositionRoot(window: UIWindow, timeout: Double = 1.5) {
+    private func compositionRoot(window: UIWindow, timeout: Double = 2) {
         
         let service = CloudService(baseURL: URL(string: "https://thoughtworks-mobile-2018.herokuapp.com"))
         
