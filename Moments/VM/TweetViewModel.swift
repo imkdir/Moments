@@ -51,14 +51,12 @@ final class TweetViewModel: NSObject {
     private func calculateGridLayout(count: Int) -> [[CGFloat]] {
         switch count {
         case 0: return []
-        case 1: return [[singleImageSize]]
+        case 1: return [[180]]
         default:
             let bound = (count == 2 || count == 4) ? 2 : 3
-            return Array(repeating: CGFloat(80), count: count).subgroup(bound: bound)
+            return [CGFloat](repeating: 80, count: count).subgroup(bound: bound)
         }
     }
-    
-    private let singleImageSize: CGFloat = 180
 }
 
 extension Reactive where Base == TweetViewModel {
