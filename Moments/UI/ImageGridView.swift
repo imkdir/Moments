@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+extension Reactive where Base: ImageGridView {
+    var indexedImage: Binder<(UIImage?, Int)> {
+        return Binder(base) { (base, value) in
+            base.imageViews[value.1].image = value.0
+        }
+    }
+}
 
 final class ImageGridView: UIView {
     
@@ -20,17 +30,12 @@ final class ImageGridView: UIView {
         }
     }
     
-    var imageGrid: [UIImage] = [] {
-        didSet {
-            let imageViews = stackView.arrangedSubviews
-                .compactMap {
-                    (($0 as? UIStackView)?.arrangedSubviews as? [UIImageView])
-                }.reduce([], +)
-            zip(imageViews, imageGrid).forEach {
-                $0.image = $1
-            }
-        }
-    }
+    fileprivate lazy var imageViews: [UIImageView] = {
+        stackView
+            .arrangedSubviews
+            .compactMap { (($0 as? UIStackView)?.arrangedSubviews as? [UIImageView]) }
+            .reduce([], +)
+    }()
     
     private var stackView: UIStackView! {
         didSet {

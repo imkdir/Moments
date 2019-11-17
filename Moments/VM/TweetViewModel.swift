@@ -68,16 +68,14 @@ extension Reactive where Base == TweetViewModel {
         return base.imageProvider.rx_image(path: path)
     }
     
-    var imageGrid: Observable<[UIImage]> {
-        let transform: (Tweet.Image) -> Observable<UIImage?> = { [base] in
-            base.imageProvider.rx_image(path: $0.url)
+    var indexedImage: Observable<(UIImage?, Int)> {
+        let transform: (Int, Tweet.Image) -> Observable<(UIImage?, Int)> = { [base] index, image in
+            base.imageProvider.rx_image(path: image.url).map({ ($0, index) })
         }
         guard let images = base.model.images else {
-            return .just([])
+            return .empty()
         }
-        return Observable
-            .zip(images.map(transform))
-            .map({ $0.compactMap({ $0 }) })
+        return Observable.merge(images.enumerated().map(transform))
     }
 }
 

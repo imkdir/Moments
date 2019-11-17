@@ -77,11 +77,8 @@ final class TweetViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel
-            .rx.imageGrid
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [imageGridView] in
-                imageGridView.imageGrid = $0
-            })
+            .rx.indexedImage
+            .bind(to: imageGridView.rx.indexedImage)
             .disposed(by: disposeBag)
     }
 
