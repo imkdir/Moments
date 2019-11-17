@@ -29,6 +29,7 @@
 		A63F9713237FFD2B0019D5F9 /* TweetVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9712237FFD2B0019D5F9 /* TweetVMTests.swift */; };
 		A63F9715238006010019D5F9 /* UserVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F9714238006010019D5F9 /* UserVMTest.swift */; };
 		A63F97172380DA9F0019D5F9 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F97162380DA9F0019D5F9 /* TestHelper.swift */; };
+		A63F97192380E62E0019D5F9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F97182380E62E0019D5F9 /* UIColor+Theme.swift */; };
 		A64DB8E8237DAAEA00B0D6FB /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */; };
 		A64DB8EA237DB9A900B0D6FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */; };
 		A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */; };
@@ -151,6 +152,7 @@
 		A63F9712237FFD2B0019D5F9 /* TweetVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVMTests.swift; sourceTree = "<group>"; };
 		A63F9714238006010019D5F9 /* UserVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVMTest.swift; sourceTree = "<group>"; };
 		A63F97162380DA9F0019D5F9 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		A63F97182380E62E0019D5F9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		A64DB8E7237DAAEA00B0D6FB /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		A64DB8E9237DB9A900B0D6FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		A64DB8EC237DCD0F00B0D6FB /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				A6541754237E1DC40000EA2E /* ImageCache.swift */,
 				A6541756237E221E0000EA2E /* ImageProvider.swift */,
+				A63F97182380E62E0019D5F9 /* UIColor+Theme.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				367FF2C37F8B6843D69E7B16 /* AppDelegate.swift in Sources */,
 				A64DB8F3237DD94A00B0D6FB /* UserViewModel.swift in Sources */,
 				367FF5B99220D2F6DC2F8B84 /* RootViewController.swift in Sources */,
+				A63F97192380E62E0019D5F9 /* UIColor+Theme.swift in Sources */,
 				367FFE5E5595061A273C8C2B /* ProfileViewController.swift in Sources */,
 				367FFB1413D1B81814856265 /* TweetViewController.swift in Sources */,
 				A64DB8ED237DCD0F00B0D6FB /* TweetViewModel.swift in Sources */,

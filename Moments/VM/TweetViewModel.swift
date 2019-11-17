@@ -46,6 +46,8 @@ final class TweetViewModel: NSObject {
         return calculateGridLayout(count: images.count)
     }
     
+    /// default image ratio is 1 since we can't get the w/h ratio
+    /// without an instance of UIImage or a ratio value from backend api.
     private func calculateGridLayout(count: Int) -> [[CGFloat]] {
         switch count {
         case 0: return []

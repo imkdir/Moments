@@ -19,7 +19,7 @@ final class PlaceholderViewController: UIViewController {
         view.addSubview(avatarView)
         
         view.backgroundColor = .white
-        headerView.backgroundColor = #colorLiteral(red: 0.1912996173, green: 0.19620049, blue: 0.2004325092, alpha: 1)
+        headerView.backgroundColor = .profileBackground
         avatarView.backgroundColor = .white
         avatarView.layer.cornerRadius = 10
         avatarView.layer.masksToBounds = true

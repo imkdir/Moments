@@ -64,7 +64,7 @@ final class RootViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.contentInset = UIEdgeInsets(top: -55, left: 0, bottom: 0, right: 0)
         tableView.separatorInset = .zero
-        tableView.separatorColor = #colorLiteral(red: 0.8765299916, green: 0.8867599964, blue: 0.8777099848, alpha: 1)
+        tableView.separatorColor = .tableViewSeparator
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(WrapperTableViewCell.self, forCellReuseIdentifier: WrapperTableViewCell.reuseIdentifier)
     }
@@ -90,6 +90,7 @@ final class RootViewController: UIViewController {
     }
 }
 
+// MARK: - TableView DataSource & Delegate
 extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,6 +113,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - Pull to Reload
 extension RootViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tweetListViewModel.shouldLoadMore = scrollView.isPullingUp || tweetListViewModel.shouldLoadMore
