@@ -33,7 +33,7 @@ extension ImageProviderProtocol {
     }
 }
 
-final class ImageProvider: NSObject, ImageProviderProtocol {
+struct ImageProvider: ImageProviderProtocol {
     fileprivate(set) var cache: ImageCacheProtocol
     
     init(cache: ImageCacheProtocol) {

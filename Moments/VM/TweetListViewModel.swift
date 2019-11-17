@@ -28,9 +28,7 @@ struct TweetListViewModel {
 
     init(model: [Tweet], imageProvider: ImageProviderProtocol) {
         self.imageProvider = imageProvider
-        self.model = model.filter({
-                $0.content != nil || $0.images != nil
-            })
+        self.model = model.filter({ $0.content != nil || $0.images != nil })
         resetLoadedContent()
     }
 
