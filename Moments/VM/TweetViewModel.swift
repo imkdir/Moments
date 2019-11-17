@@ -67,12 +67,12 @@ extension Reactive where Base == TweetViewModel {
         guard let path = base.model.sender?.avatar else {
             return .just(nil)
         }
-        return base.imageProvider.rx_image(path: path)
+        return base.imageProvider.fetchImage(path: path)
     }
     
     var indexedImage: Observable<(UIImage?, Int)> {
         let transform: (Int, Tweet.Image) -> Observable<(UIImage?, Int)> = { [base] index, image in
-            base.imageProvider.rx_image(path: image.url).map({ ($0, index) })
+            base.imageProvider.fetchImage(path: image.url).map({ ($0, index) })
         }
         guard let images = base.model.images else {
             return .empty()

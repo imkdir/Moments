@@ -18,29 +18,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        compositionRoot()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = PlaceholderViewController()
+        compositionRoot(window: window)
+        window.makeKeyAndVisible()
+        self.window = window
         return true
     }
 
-    private func compositionRoot() {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        
-        window.rootViewController = PlaceholderViewController()
+    private func compositionRoot(window: UIWindow, timeout: Double = 1) {
         
         let service = CloudService(baseURL: URL(string: "https://thoughtworks-mobile-2018.herokuapp.com"))
         
         fetchData(service: service, userId: "jsmith")
-            .retry(1)
+            .timeout(timeout, scheduler: MainScheduler.instance)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] user, tweets in
                 self.showRootViewController(window: window, user: user, tweets: tweets)
-            }, onError: { [unowned self] _ in
-                self.showLoadFailedAlert()
+            }, onError: { [unowned self] error in
+                var message = error.localizedDescription
+                if case RxError.timeout = error {
+                    message = "The Internet connection appears to be slow."
+                }
+                self.showLoadFailedAlert(window: window, message: message, timeout: timeout + 1)
             })
             .disposed(by: disposeBag)
-        
-        window.makeKeyAndVisible()
-        self.window = window
     }
     
     private func fetchData<T:MomentRepository>(service: T, userId: String) -> Observable<(User, [Tweet])> {
@@ -56,13 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.setRootViewController(rootVC, options: options)
     }
     
-    private func showLoadFailedAlert() {
-        let alert = UIAlertController(title: "Network Error", message: "Please try again later.", preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: {_ in
-            UIApplication.shared.perform(Selector("suspend"))
-            Thread.sleep(forTimeInterval: 2)
-            exit(0)
+    private func showLoadFailedAlert(window: UIWindow, message: String, timeout: Double) {
+        let alert = UIAlertController(title: "Network Error", message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "Try Again", style: .default, handler: {_ in
+            self.compositionRoot(window: window, timeout: timeout)
         }))
-        window?.rootViewController?.present(alert, animated: true)
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        window.rootViewController?.present(alert, animated: true)
     }
 }

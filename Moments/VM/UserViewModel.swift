@@ -24,10 +24,10 @@ final class UserViewModel: NSObject {
 
 extension Reactive where Base == UserViewModel {
     var avatarImage: Observable<UIImage?> {
-        base.imageProvider.rx_image(path: base.model.avatar)
+        base.imageProvider.fetchImage(path: base.model.avatar)
     }
     
     var profileImage: Observable<UIImage?> {
-        base.imageProvider.rx_image(path: base.model.profileImage)
+        base.imageProvider.fetchImage(path: base.model.profileImage)
     }
 }

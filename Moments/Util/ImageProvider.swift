@@ -18,7 +18,7 @@ protocol ImageProviderProtocol {
 }
 
 extension ImageProviderProtocol {
-    func rx_image(path: String, cacheGroupId: String = #function) -> Observable<UIImage?> {
+    func fetchImage(path: String, cacheGroupId: String = #function) -> Observable<UIImage?> {
         guard let url = URL(string: path) else {
             return .just(nil)
         }
@@ -46,5 +46,6 @@ struct ImageProvider: ImageProviderProtocol {
             .data(request: URLRequest(url: url))
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
             .map(UIImage.init(data:))
+            .catchErrorJustReturn(nil)
     }
 }
