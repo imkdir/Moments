@@ -10,12 +10,13 @@ struct TweetListViewModel {
     private var model: [Tweet]
     private var imageProvider: ImageProviderProtocol
     
+    /// only show 5 (or less) tweets at first
     private var length: Int = 5
     
     var shouldLoadMore: Bool = false
     
     mutating func resetLoadedContent() {
-        length = min(model.count, 5)
+        length = 5
     }
 
     func tweetViewModel(atIndexPath indexPath: IndexPath) -> TweetViewModel {

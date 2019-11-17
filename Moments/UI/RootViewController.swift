@@ -13,19 +13,6 @@ import ArielLite
 
 final class RootViewController: UIViewController {
     private let tableView = UITableView()
-    
-    private lazy var headerView: UIView = {
-        let size = UIScreen.main.bounds.width
-        let headerFrame = CGRect(x: 0, y: 0, width: size, height: size)
-        let headerView = UIView(frame: headerFrame)
-        let vc = ProfileViewController(viewModel: userViewModel)
-        self.addChild(vc)
-        headerView.addSubview(vc.view)
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
-        vc.view.edges(equal: headerView)
-        vc.didMove(toParent: self)
-        return headerView
-    }()
 
     private var tweetListViewModel: TweetListViewModel
     private var userViewModel: UserViewModel
@@ -52,7 +39,6 @@ final class RootViewController: UIViewController {
 
     private func setupViewHierarchy() {
         view.addSubview(tableView)
-        tableView.tableHeaderView = headerView
     }
 
     private func configureAppearance() {
@@ -60,7 +46,7 @@ final class RootViewController: UIViewController {
         tableView.delegate = self
         
         tableView.sectionHeaderHeight = 60
-        tableView.estimatedRowHeight = 500
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         tableView.contentInset = UIEdgeInsets(top: -55, left: 0, bottom: 0, right: 0)
         tableView.separatorInset = .zero
@@ -87,7 +73,48 @@ final class RootViewController: UIViewController {
                 refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
+        
+        rx.methodInvoked(#selector(viewWillTransition(to:with:)))
+            .map({ _ in UIDevice.current.orientation })
+            .filter(UIDeviceOrientation.elementsToFilter)
+            .startWith(UIDevice.current.orientation)
+            .map({ $0.isLandscape })
+            .distinctUntilChanged()
+            .map({ [bounds = UIScreen.main.bounds] isLandscape in
+                isLandscape
+                    ? CGSize(width: bounds.height, height: bounds.width * 0.5)
+                    : CGSize(width: bounds.width, height: bounds.width)
+            })
+            .subscribe(onNext: { [unowned self] in
+                self.prepareProfileViewControllerForReuse()
+                let headerView = self.embedProfileViewControllerInView(size: $0)
+                self.tableView.tableHeaderView = headerView
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
+    
+    private func embedProfileViewControllerInView(size: CGSize) -> UIView {
+        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let view = UIView(frame: frame)
+        let vc = profileViewController
+        self.addChild(vc)
+        view.addSubview(vc.view)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        vc.view.edges(equal: view)
+        vc.didMove(toParent: self)
+        return view
+    }
+    
+    private func prepareProfileViewControllerForReuse() {
+        guard profileViewController.parent != nil else { return }
+        
+        profileViewController.willMove(toParent: nil)
+        profileViewController.view.removeFromSuperview()
+        profileViewController.removeFromParent()
+    }
+    
+    private lazy var profileViewController = ProfileViewController(viewModel: userViewModel)
 }
 
 // MARK: - TableView DataSource & Delegate
@@ -142,5 +169,25 @@ extension UIScrollView {
             safeAreaBottomInset = safeAreaInsets.bottom
         }
         return contentOffset.y + frame.height - safeAreaBottomInset - contentSize.height < 0.1
+    }
+}
+
+extension UIDeviceOrientation: CustomDebugStringConvertible {
+    /// only care about portrait or landscape
+    public var debugDescription: String {
+        switch self {
+        case .portrait, .portraitUpsideDown: return "portrait"
+        case .landscapeRight, .landscapeLeft: return "landscape"
+        default: return "unknown"
+        }
+    }
+    
+    fileprivate static func elementsToFilter(_ el: UIDeviceOrientation) -> Bool {
+        switch el {
+        case .faceDown, .faceUp, .unknown:
+            return false
+        default:
+            return true
+        }
     }
 }

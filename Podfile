@@ -6,6 +6,8 @@ target 'Moments' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'UIWindowTransitions'
+
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end
 
 target 'MomentsTests' do

@@ -44,6 +44,7 @@ final class ProfileViewController: UIViewController {
         
         profileImageView.backgroundColor = .profileBackground
         profileImageView.contentMode = .scaleAspectFill
+        profileImageView.clipsToBounds = true
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 10

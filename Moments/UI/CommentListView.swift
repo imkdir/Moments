@@ -20,10 +20,18 @@ final class CommentListView: UIView {
         }
     }
     
+    override var isHidden: Bool {
+        didSet {
+            /// if view is already hidden, draw rect content
+            /// should be invisible, but strangely it's not
+            /// this line of code is just a quick fix
+            fillColor = isHidden ? .clear : .commentBackground
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        clipsToBounds = false
+
         backgroundColor = .clear
     }
     
@@ -32,7 +40,6 @@ final class CommentListView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let fillColor: UIColor = .commentBackground
         let rectangle = UIBezierPath(
             rect: CGRect(
                 x: rect.minX,
@@ -75,6 +82,12 @@ final class CommentListView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }
+    
+    private var fillColor: UIColor = .commentBackground {
+        didSet {
+            setNeedsDisplay()
+        }
     }
     
     private let offsetY: CGFloat = 5
